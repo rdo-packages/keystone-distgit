@@ -1,7 +1,7 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global release_name liberty
 %global pypi_name keystone
-%global milestone .0b1
+%global milestone .0b2
  
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
@@ -10,11 +10,11 @@ Name:           openstack-keystone
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
 Version:        8.0.0
-Release:        0.1%{?milestone}%{?dist}
+Release:        0.2%{?milestone}%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
 URL:            http://keystone.openstack.org/
-Source0:        http://launchpad.net/%{pypi_name}/%{release_name}/%{release_name}-1/+download/%{pypi_name}-%{upstream_version}.tar.gz
+Source0:        http://launchpad.net/%{pypi_name}/%{release_name}/%{release_name}-2/+download/%{pypi_name}-%{upstream_version}.tar.gz
 
 Source1:        openstack-keystone.logrotate
 Source2:        openstack-keystone.service
@@ -22,7 +22,7 @@ Source3:        openstack-keystone.sysctl
 Source5:        openstack-keystone-sample-data
 Source20:       keystone-dist.conf
 
-# patches_base=8.0.0.0b1
+# patches_base=8.0.0.0b2
 Patch0001: 0001-sync-parameter-values-with-keystone-dist.conf.patch
 
 BuildArch:      noarch
@@ -240,6 +240,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Aug 04 2015 Alan Pevec <alan.pevec@redhat.com> 1:8.0.0-0.2.0b2
+- Update to upstream 8.0.0.0b2
+
 * Fri Jun 19 2015 Alan Pevec <alan.pevec@redhat.com> 2015.1.0-3
 - enable federation, pysaml2 is now packaged
 

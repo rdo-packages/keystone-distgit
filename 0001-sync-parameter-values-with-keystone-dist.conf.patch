@@ -1,4 +1,4 @@
-From 6660fe11bb851a313101c3e763e72606b0dadfaf Mon Sep 17 00:00:00 2001
+From 59225f539cde18fff38a978a21cb15f9b87137f6 Mon Sep 17 00:00:00 2001
 From: Alan Pevec <apevec@redhat.com>
 Date: Mon, 9 Sep 2013 15:22:20 +0200
 Subject: [PATCH] sync parameter values with keystone-dist.conf
@@ -11,10 +11,10 @@ Change-Id: If36c384f86843a6506a494d79beca65639fb3480
  1 file changed, 8 insertions(+), 7 deletions(-)
 
 diff --git a/etc/keystone.conf.sample b/etc/keystone.conf.sample
-index d40adfb..8cbb149 100644
+index 776c759..c343b3d 100644
 --- a/etc/keystone.conf.sample
 +++ b/etc/keystone.conf.sample
-@@ -130,10 +130,11 @@
+@@ -118,10 +118,11 @@
  # value)
  #log_date_format = %Y-%m-%d %H:%M:%S
  
@@ -29,7 +29,7 @@ index d40adfb..8cbb149 100644
  
  # (Optional) The base directory used for relative --log-file paths. (string
  # value)
-@@ -156,7 +157,7 @@
+@@ -144,7 +145,7 @@
  #syslog_log_facility = LOG_USER
  
  # Log output to standard error. (boolean value)
@@ -38,16 +38,16 @@ index d40adfb..8cbb149 100644
  
  # Format string to use for log messages with context. (string value)
  #logging_context_format_string = %(asctime)s.%(msecs)03d %(process)d %(levelname)s %(name)s [%(request_id)s %(user_identity)s] %(instance)s%(message)s
-@@ -368,7 +369,7 @@
+@@ -375,7 +376,7 @@
  
  # Catalog template file name for use with the template catalog backend. (string
  # value)
 -#template_file = default_catalog.templates
 +#template_file = /etc/keystone/default_catalog.templates
  
- # Catalog backend driver. (string value)
- #driver = sql
-@@ -475,7 +476,7 @@
+ # Entrypoint for the catalog backend driver in the keystone.catalog namespace.
+ # (string value)
+@@ -484,7 +485,7 @@
  # Deprecated group/name - [DEFAULT]/sql_connection
  # Deprecated group/name - [DATABASE]/sql_connection
  # Deprecated group/name - [sql]/connection
@@ -56,7 +56,7 @@ index d40adfb..8cbb149 100644
  
  # The SQLAlchemy connection string to use to connect to the slave database.
  # (string value)
-@@ -1562,7 +1563,7 @@
+@@ -1637,7 +1638,7 @@
  
  # Name of the paste configuration file that defines the available pipelines.
  # (string value)
