@@ -55,7 +55,6 @@ Requires:       python-passlib
 Requires:       MySQL-python
 Requires:       PyPAM
 Requires:       python-iso8601
-Requires:       python-oslo-config >= 1:1.9.0
 Requires:       openssl
 Requires:       python-netaddr
 Requires:       python-six >= 1.9.0
@@ -63,18 +62,19 @@ Requires:       python-babel
 Requires:       python-oauthlib
 Requires:       python-dogpile-cache >= 0.5.3
 Requires:       python-jsonschema
-Requires:       python-oslo-messaging >= 1.4.0.0
 Requires:       python-pycadf >= 0.8.0
 Requires:       python-posix_ipc
 Requires:       python-keystonemiddleware
-Requires:       python-oslo-db
-Requires:       python-oslo-i18n
-Requires:       python-oslo-utils
-Requires:       python-oslo-concurrency
-Requires:       python-oslo-serialization
-Requires:       python-oslo-middleware
-Requires:       python-oslo-log
-Requires:       python-oslo-policy
+Requires:       python-oslo-concurrency >= 1.8.0
+Requires:       python-oslo-config >= 1:1.9.3
+Requires:       python-oslo-db >= 1.7.0
+Requires:       python-oslo-i18n >= 1.5.0
+Requires:       python-oslo-log >= 1.0.0
+Requires:       python-oslo-messaging >= 1.8.0
+Requires:       python-oslo-middleware >= 1.0.0
+Requires:       python-oslo-policy >= 0.3.1
+Requires:       python-oslo-serialization >= 1.4.0
+Requires:       python-oslo-utils >= 1.4.0
 Requires:       python-pysaml2
 # for Keystone Lightweight Tokens (KLWT)
 Requires:       python-cryptography
@@ -95,12 +95,12 @@ BuildRequires:  python-oslo-sphinx >= 2.5.0
 # for API autodoc
 BuildRequires:  python-keystonemiddleware
 BuildRequires:  python-ldappool
-BuildRequires:  python-oslo-concurrency
-BuildRequires:  python-oslo-db
-BuildRequires:  python-oslo-log
-BuildRequires:  python-oslo-messaging
-BuildRequires:  python-oslo-middleware
-BuildRequires:  python-oslo-policy
+BuildRequires:  python-oslo-concurrency >= 1.8.0
+BuildRequires:  python-oslo-db >= 1.7.0
+BuildRequires:  python-oslo-log >= 1.0.0
+BuildRequires:  python-oslo-messaging >= 1.8.0
+BuildRequires:  python-oslo-middleware >= 1.0.0
+BuildRequires:  python-oslo-policy >= 0.3.1
 
 %description doc
 Keystone is a Python implementation of the OpenStack
