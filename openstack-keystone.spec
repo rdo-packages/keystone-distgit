@@ -61,7 +61,7 @@ Requires:       python-pycadf >= 0.8.0
 Requires:       python-posix_ipc
 Requires:       python-keystonemiddleware
 Requires:       python-oslo-concurrency >= 1.8.0
-Requires:       python-oslo-config >= 1:1.9.3
+Requires:       python-oslo-config >= 2:1.9.3
 Requires:       python-oslo-db >= 1.7.0
 Requires:       python-oslo-i18n >= 1.5.0
 Requires:       python-oslo-log >= 1.0.0
