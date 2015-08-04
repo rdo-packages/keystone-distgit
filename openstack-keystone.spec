@@ -21,7 +21,7 @@ BuildArch:      noarch
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
 # Required to build keystone.conf
-BuildRequires:  python-oslo-config
+BuildRequires:  python-oslo-config >= 2:1.11.0
 BuildRequires:  python-pycadf >= 0.8.0
 
 Requires:       python-keystone = %{epoch}:%{version}-%{release}
@@ -56,7 +56,6 @@ Requires:       python-passlib
 Requires:       MySQL-python
 Requires:       PyPAM
 Requires:       python-iso8601
-Requires:       python-oslo-config >= 1:1.9.0
 Requires:       openssl
 Requires:       python-netaddr
 Requires:       python-six >= 1.9.0
@@ -64,18 +63,19 @@ Requires:       python-babel
 Requires:       python-oauthlib
 Requires:       python-dogpile-cache >= 0.5.3
 Requires:       python-jsonschema
-Requires:       python-oslo-messaging >= 1.4.0.0
 Requires:       python-pycadf >= 0.8.0
 Requires:       python-posix_ipc
 Requires:       python-keystonemiddleware
-Requires:       python-oslo-db
-Requires:       python-oslo-i18n
-Requires:       python-oslo-utils
-Requires:       python-oslo-concurrency
-Requires:       python-oslo-serialization
-Requires:       python-oslo-middleware
-Requires:       python-oslo-log
-Requires:       python-oslo-policy
+Requires:       python-oslo-concurrency >= 2.3.0
+Requires:       python-oslo-config >= 2:1.11.0
+Requires:       python-oslo-db >= 1.12.0
+Requires:       python-oslo-i18n >= 1.5.0
+Requires:       python-oslo-log >= 1.6.0
+Requires:       python-oslo-messaging >= 1.16.0
+Requires:       python-oslo-middleware >= 2.4.0
+Requires:       python-oslo-policy >= 0.5.0
+Requires:       python-oslo-serialization >= 1.4.0
+Requires:       python-oslo-utils >= 1.9.0
 Requires:       python-pysaml2
 # for Keystone Lightweight Tokens (KLWT)
 Requires:       python-cryptography
@@ -101,12 +101,12 @@ BuildRequires:  python-keystonemiddleware
 BuildRequires:  python-ldappool
 BuildRequires:  python-memcached
 BuildRequires:  python-oauthlib
-BuildRequires:  python-oslo-concurrency
-BuildRequires:  python-oslo-db
-BuildRequires:  python-oslo-log
-BuildRequires:  python-oslo-messaging
-BuildRequires:  python-oslo-middleware
-BuildRequires:  python-oslo-policy
+BuildRequires:  python-oslo-concurrency >= 2.3.0
+BuildRequires:  python-oslo-db >= 1.12.0
+BuildRequires:  python-oslo-log >= 1.6.0
+BuildRequires:  python-oslo-messaging >= 1.8.0
+BuildRequires:  python-oslo-middleware >= 2.4.0
+BuildRequires:  python-oslo-policy >= 0.5.0
 BuildRequires:  python-passlib
 BuildRequires:  python-paste-deploy
 BuildRequires:  python-pysaml2
