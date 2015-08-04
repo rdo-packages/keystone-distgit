@@ -5,8 +5,8 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           openstack-keystone
-Version:        2015.1.0
-Release:        3%{?milestone}%{?dist}
+Version:        2015.1.1
+Release:        1%{?milestone}%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
 URL:            http://keystone.openstack.org/
@@ -18,7 +18,6 @@ Source5:        openstack-keystone-sample-data
 Source20:       keystone-dist.conf
 
 Patch0001: 0001-sync-parameter-values-with-keystone-dist.conf.patch
-Patch0002: 0002-Fix-xmldsig-import.patch
 
 BuildArch:      noarch
 BuildRequires:  python2-devel
@@ -114,7 +113,6 @@ This package contains documentation for Keystone.
 %setup -q -n keystone-%{upstream_version}
 
 %patch0001 -p1
-%patch0002 -p1
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 find keystone -name \*.py -exec sed -i '/\/usr\/bin\/env python/d' {} \;
@@ -224,6 +222,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Aug 04 2015 Alan Pevec <alan.pevec@redhat.com> 2015.1.1-1
+- Update to upstream 2015.1.1
+
 * Fri Jun 19 2015 Alan Pevec <alan.pevec@redhat.com> 2015.1.0-3
 - enable federation, pysaml2 is now packaged
 
