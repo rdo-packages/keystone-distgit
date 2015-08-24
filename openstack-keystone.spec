@@ -183,6 +183,7 @@ exit 0
 
 %post
 %systemd_post openstack-keystone.service
+%sysctl_apply openstack-keystone.conf
 
 %preun
 %systemd_preun openstack-keystone.service
