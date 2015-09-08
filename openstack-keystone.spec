@@ -159,6 +159,7 @@ install -p -D -m 644 %{SOURCE3} %{buildroot}%{_prefix}/lib/sysctl.d/openstack-ke
 install -p -D -m 755 tools/sample_data.sh %{buildroot}%{_datadir}/keystone/sample_data.sh
 install -p -D -m 755 %{SOURCE5} %{buildroot}%{_bindir}/openstack-keystone-sample-data
 # Install sample HTTPD integration files
+install -p -D -m 644 httpd/keystone.py  %{buildroot}%{_datadir}/keystone/keystone.wsgi
 install -p -D -m 644 httpd/wsgi-keystone.conf  %{buildroot}%{_datadir}/keystone/
 
 install -d -m 755 %{buildroot}%{_sharedstatedir}/keystone
@@ -207,6 +208,7 @@ exit 0
 %attr(0644, root, keystone) %{_datadir}/keystone/keystone-dist-paste.ini
 %attr(0644, root, keystone) %{_datadir}/keystone/policy.v3cloudsample.json
 %attr(0755, root, root) %{_datadir}/keystone/sample_data.sh
+%attr(0644, root, keystone) %{_datadir}/keystone/keystone.wsgi
 %attr(0644, root, keystone) %{_datadir}/keystone/wsgi-keystone.conf
 %{_unitdir}/openstack-keystone.service
 %dir %attr(0750, root, keystone) %{_sysconfdir}/keystone
