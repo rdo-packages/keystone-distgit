@@ -1,7 +1,7 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global release_name liberty
 %global pypi_name keystone
-%global milestone .0b2
+%global milestone .0b3
  
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
@@ -10,11 +10,11 @@ Name:           openstack-keystone
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
 Version:        8.0.0
-Release:        0.2%{?milestone}%{?dist}
+Release:        0.3%{?milestone}%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
 URL:            http://keystone.openstack.org/
-Source0:        http://launchpad.net/%{pypi_name}/%{release_name}/%{release_name}-2/+download/%{pypi_name}-%{upstream_version}.tar.gz
+Source0:        http://launchpad.net/%{pypi_name}/%{release_name}/%{release_name}-3/+download/%{pypi_name}-%{upstream_version}.tar.gz
 
 Source1:        openstack-keystone.logrotate
 Source2:        openstack-keystone.service
@@ -22,18 +22,18 @@ Source3:        openstack-keystone.sysctl
 Source5:        openstack-keystone-sample-data
 Source20:       keystone-dist.conf
 
-# patches_base=8.0.0.0b2
+# patches_base=8.0.0.0b3
 Patch0001: 0001-sync-parameter-values-with-keystone-dist.conf.patch
 
 BuildArch:      noarch
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
 # Required to build keystone.conf
-BuildRequires:  python-oslo-config >= 2:1.11.0
+BuildRequires:  python-oslo-config >= 2:2.3.0
 BuildRequires:  python-pycadf >= 0.8.0
 
 Requires:       python-keystone = %{epoch}:%{version}-%{release}
-Requires:       python-keystoneclient >= 1:1.1.0
+Requires:       python-keystoneclient >= 1:1.6.0
 
 Requires(post): systemd
 Requires(preun): systemd
@@ -55,12 +55,12 @@ Requires:       python-eventlet
 Requires:       python-ldap
 Requires:       python-ldappool
 Requires:       python-memcached
-Requires:       python-migrate >= 0.9.5
+Requires:       python-migrate >= 0.9.6
 Requires:       python-paste-deploy >= 1.5.0
 Requires:       python-routes >= 1.12
 Requires:       python-sqlalchemy >= 0.9.7
 Requires:       python-webob >= 1.2.3
-Requires:       python-passlib
+Requires:       python-passlib >= 1.6
 Requires:       MySQL-python
 Requires:       PyPAM
 Requires:       python-iso8601
@@ -69,21 +69,21 @@ Requires:       python-netaddr
 Requires:       python-six >= 1.9.0
 Requires:       python-babel
 Requires:       python-oauthlib
-Requires:       python-dogpile-cache >= 0.5.3
+Requires:       python-dogpile-cache >= 0.5.4
 Requires:       python-jsonschema
 Requires:       python-pycadf >= 0.8.0
 Requires:       python-posix_ipc
-Requires:       python-keystonemiddleware
+Requires:       python-keystonemiddleware >= 2.0.0
 Requires:       python-oslo-concurrency >= 2.3.0
-Requires:       python-oslo-config >= 2:1.11.0
-Requires:       python-oslo-db >= 1.12.0
+Requires:       python-oslo-config >= 2:2.3.0
+Requires:       python-oslo-db >= 2.4.1
 Requires:       python-oslo-i18n >= 1.5.0
-Requires:       python-oslo-log >= 1.6.0
-Requires:       python-oslo-messaging >= 1.16.0
-Requires:       python-oslo-middleware >= 2.4.0
+Requires:       python-oslo-log >= 1.8.0
+Requires:       python-oslo-messaging >= 2.5.0
+Requires:       python-oslo-middleware >= 2.8.0
 Requires:       python-oslo-policy >= 0.5.0
 Requires:       python-oslo-serialization >= 1.4.0
-Requires:       python-oslo-utils >= 1.9.0
+Requires:       python-oslo-utils >= 2.0.0
 Requires:       python-pysaml2
 # for Keystone Lightweight Tokens (KLWT)
 Requires:       python-cryptography
@@ -103,19 +103,19 @@ BuildRequires:  python-sphinx >= 1.1.2
 BuildRequires:  python-oslo-sphinx >= 2.5.0
 # for API autodoc
 BuildRequires:  python-cryptography
-BuildRequires:  python-dogpile-cache
+BuildRequires:  python-dogpile-cache >= 0.5.4
 BuildRequires:  python-jsonschema
-BuildRequires:  python-keystonemiddleware
+BuildRequires:  python-keystonemiddleware >= 2.0.0
 BuildRequires:  python-ldappool
 BuildRequires:  python-memcached
 BuildRequires:  python-oauthlib
 BuildRequires:  python-oslo-concurrency >= 2.3.0
-BuildRequires:  python-oslo-db >= 1.12.0
-BuildRequires:  python-oslo-log >= 1.6.0
-BuildRequires:  python-oslo-messaging >= 1.8.0
-BuildRequires:  python-oslo-middleware >= 2.4.0
+BuildRequires:  python-oslo-db >= 2.4.1
+BuildRequires:  python-oslo-log >= 1.8.0
+BuildRequires:  python-oslo-messaging >= 2.5.0
+BuildRequires:  python-oslo-middleware >= 2.8.0
 BuildRequires:  python-oslo-policy >= 0.5.0
-BuildRequires:  python-passlib
+BuildRequires:  python-passlib >= 1.6
 BuildRequires:  python-paste-deploy
 BuildRequires:  python-pysaml2
 BuildRequires:  python-routes
@@ -136,6 +136,9 @@ find . \( -name .gitignore -o -name .placeholder \) -delete
 find keystone -name \*.py -exec sed -i '/\/usr\/bin\/env python/d' {} \;
 # Let RPM handle the dependencies
 rm -f test-requirements.txt requirements.txt
+
+# adjust paths to WSGI scripts
+sed -i 's#/local/bin#/bin#' httpd/wsgi-keystone.conf
 
 %build
 PYTHONPATH=. oslo-config-generator --config-file=config-generator/keystone.conf
@@ -193,6 +196,7 @@ exit 0
 
 %post
 %systemd_post openstack-keystone.service
+%sysctl_apply openstack-keystone.conf
 
 %preun
 %systemd_preun openstack-keystone.service
@@ -205,6 +209,8 @@ exit 0
 %doc README.rst
 %{_mandir}/man1/keystone*.1.gz
 %{_bindir}/keystone-all
+%{_bindir}/keystone-wsgi-admin
+%{_bindir}/keystone-wsgi-public
 %{_bindir}/keystone-manage
 %{_bindir}/openstack-keystone-sample-data
 %dir %{_datadir}/keystone
@@ -240,6 +246,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Sep 17 2015 Alan Pevec <alan.pevec@redhat.com> 1:8.0.0-0.4.0b2
+- Update to upstream 8.0.0.0b3
+
 * Tue Aug 04 2015 Alan Pevec <alan.pevec@redhat.com> 1:8.0.0-0.2.0b2
 - Update to upstream 8.0.0.0b2
 
