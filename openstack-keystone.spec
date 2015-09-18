@@ -23,6 +23,8 @@ BuildRequires:  python-pbr
 # Required to build keystone.conf
 BuildRequires:  python-oslo-config >= 2:1.11.0
 BuildRequires:  python-pycadf >= 0.8.0
+BuildRequires:  python-redis
+BuildRequires:  python-zmq
 
 Requires:       python-keystone = %{epoch}:%{version}-%{release}
 Requires:       python-keystoneclient >= 1:1.1.0
