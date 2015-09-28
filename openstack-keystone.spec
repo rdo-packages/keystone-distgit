@@ -1,7 +1,7 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global release_name liberty
-%global pypi_name keystone
-%global milestone .0b3
+%global service keystone
+%global milestone .0rc1
  
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
@@ -10,11 +10,11 @@ Name:           openstack-keystone
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
 Version:        8.0.0
-Release:        0.3%{?milestone}%{?dist}
+Release:        0.5%{?milestone}%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
 URL:            http://keystone.openstack.org/
-Source0:        http://launchpad.net/%{pypi_name}/%{release_name}/%{release_name}-3/+download/%{pypi_name}-%{upstream_version}.tar.gz
+Source0:        http://launchpad.net/%{service}/%{release_name}/%{release_name}-rc1/+download/%{service}-%{upstream_version}.tar.gz
 
 Source1:        openstack-keystone.logrotate
 Source2:        openstack-keystone.service
@@ -27,10 +27,12 @@ Patch0001: 0001-sync-parameter-values-with-keystone-dist.conf.patch
 
 BuildArch:      noarch
 BuildRequires:  python2-devel
-BuildRequires:  python-pbr
+BuildRequires:  python-pbr >= 1.8
 # Required to build keystone.conf
 BuildRequires:  python-oslo-config >= 2:2.3.0
 BuildRequires:  python-pycadf >= 0.8.0
+BuildRequires:  python-redis
+BuildRequires:  python-zmq
 
 Requires:       python-keystone = %{epoch}:%{version}-%{release}
 Requires:       python-keystoneclient >= 1:1.6.0
@@ -246,7 +248,10 @@ exit 0
 %endif
 
 %changelog
-* Thu Sep 17 2015 Alan Pevec <alan.pevec@redhat.com> 1:8.0.0-0.4.0b2
+* Tue Sep 29 2015 Alan Pevec <alan.pevec@redhat.com> 1:8.0.0-0.5.0rc1
+- OpenStack Liberty release candidate
+
+* Thu Sep 17 2015 Alan Pevec <alan.pevec@redhat.com> 1:8.0.0-0.4.0b3
 - Update to upstream 8.0.0.0b3
 
 * Tue Aug 04 2015 Alan Pevec <alan.pevec@redhat.com> 1:8.0.0-0.2.0b2
