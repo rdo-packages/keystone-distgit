@@ -1,7 +1,7 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global release_name liberty
 %global service keystone
-%global milestone .0rc1
+%global milestone .0rc2
  
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
@@ -10,11 +10,11 @@ Name:           openstack-keystone
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
 Version:        8.0.0
-Release:        0.5%{?milestone}%{?dist}
+Release:        0.6%{?milestone}%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
 URL:            http://keystone.openstack.org/
-Source0:        http://launchpad.net/%{service}/%{release_name}/%{release_name}-rc1/+download/%{service}-%{upstream_version}.tar.gz
+Source0:        http://launchpad.net/%{service}/%{release_name}/%{release_name}-rc2/+download/%{service}-%{upstream_version}.tar.gz
 
 Source1:        openstack-keystone.logrotate
 Source2:        openstack-keystone.service
@@ -22,7 +22,7 @@ Source3:        openstack-keystone.sysctl
 Source5:        openstack-keystone-sample-data
 Source20:       keystone-dist.conf
 
-# patches_base=8.0.0.0b3
+# patches_base=8.0.0.0rc2
 Patch0001: 0001-sync-parameter-values-with-keystone-dist.conf.patch
 
 BuildArch:      noarch
@@ -78,6 +78,7 @@ Requires:       python-posix_ipc
 Requires:       python-keystonemiddleware >= 2.0.0
 Requires:       python-oslo-concurrency >= 2.3.0
 Requires:       python-oslo-config >= 2:2.3.0
+Requires:       python-oslo-context >= 0.2.0
 Requires:       python-oslo-db >= 2.4.1
 Requires:       python-oslo-i18n >= 1.5.0
 Requires:       python-oslo-log >= 1.8.0
@@ -85,8 +86,10 @@ Requires:       python-oslo-messaging >= 2.5.0
 Requires:       python-oslo-middleware >= 2.8.0
 Requires:       python-oslo-policy >= 0.5.0
 Requires:       python-oslo-serialization >= 1.4.0
+Requires:       python-oslo-service >= 0.7.0
 Requires:       python-oslo-utils >= 2.0.0
 Requires:       python-pysaml2
+Requires:       python-stevedore >= 1.5.0
 # for Keystone Lightweight Tokens (KLWT)
 Requires:       python-cryptography
 Requires:       python-msgpack
@@ -248,6 +251,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Oct 06 2015 Alan Pevec <alan.pevec@redhat.com> 1:8.0.0-0.6.0rc2
+- Update to upstream 8.0.0.0rc2
+
 * Tue Sep 29 2015 Alan Pevec <alan.pevec@redhat.com> 1:8.0.0-0.5.0rc1
 - OpenStack Liberty release candidate
 
