@@ -24,7 +24,7 @@ BuildRequires:  python2-devel
 BuildRequires:  python-pbr
 
 Requires:       python-keystone = %{version}-%{release}
-Requires:       python-keystoneclient >= 1:1.1.0
+Requires:       python-keystoneclient >= 1:1.2.0
 
 Requires(post): systemd
 Requires(preun): systemd
