@@ -1,7 +1,7 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global release_name liberty
 %global service keystone
- 
+
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           openstack-keystone
