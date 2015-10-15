@@ -27,7 +27,7 @@ BuildRequires:  python2-devel
 BuildRequires:  python-pbr >= 1.8
 # Required to build keystone.conf
 BuildRequires:  python-oslo-config >= 2:2.3.0
-BuildRequires:  python-pycadf >= 0.8.0
+BuildRequires:  python-pycadf >= 1.1.0
 BuildRequires:  python-redis
 BuildRequires:  python-zmq
 
@@ -57,7 +57,7 @@ Requires:       python-memcached
 Requires:       python-migrate >= 0.9.6
 Requires:       python-paste-deploy >= 1.5.0
 Requires:       python-routes >= 1.12
-Requires:       python-sqlalchemy >= 0.9.7
+Requires:       python-sqlalchemy >= 0.9.9
 Requires:       python-webob >= 1.2.3
 Requires:       python-passlib >= 1.6
 Requires:       MySQL-python
