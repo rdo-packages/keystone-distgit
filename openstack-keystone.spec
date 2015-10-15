@@ -1,5 +1,7 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
-%global pypi_name keystone
+%global service keystone
+
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           openstack-keystone
 # Liberty semver reset
@@ -10,7 +12,7 @@ Release:        XXX
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
 URL:            http://keystone.openstack.org/
-Source0:        http://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-master.tar.gz
+Source0:        http://tarballs.openstack.org/%{service}/%{service}-master.tar.gz
 Source1:        openstack-keystone.logrotate
 Source2:        openstack-keystone.service
 Source3:        openstack-keystone.sysctl
@@ -19,15 +21,15 @@ Source20:       keystone-dist.conf
 
 BuildArch:      noarch
 BuildRequires:  python2-devel
-BuildRequires:  python-pbr
+BuildRequires:  python-pbr >= 1.8
 # Required to build keystone.conf
-BuildRequires:  python-oslo-config >= 2:1.11.0
-BuildRequires:  python-pycadf >= 0.8.0
+BuildRequires:  python-oslo-config >= 2:2.3.0
+BuildRequires:  python-pycadf >= 1.1.0
 BuildRequires:  python-redis
 BuildRequires:  python-zmq
 
 Requires:       python-keystone = %{epoch}:%{version}-%{release}
-Requires:       python-keystoneclient >= 1:1.1.0
+Requires:       python-keystoneclient >= 1:1.6.0
 
 Requires(post): systemd
 Requires(preun): systemd
@@ -49,12 +51,12 @@ Requires:       python-eventlet
 Requires:       python-ldap
 Requires:       python-ldappool
 Requires:       python-memcached
-Requires:       python-migrate >= 0.9.5
+Requires:       python-migrate >= 0.9.6
 Requires:       python-paste-deploy >= 1.5.0
 Requires:       python-routes >= 1.12
-Requires:       python-sqlalchemy >= 0.9.7
+Requires:       python-sqlalchemy >= 0.9.9
 Requires:       python-webob >= 1.2.3
-Requires:       python-passlib
+Requires:       python-passlib >= 1.6
 Requires:       MySQL-python
 Requires:       PyPAM
 Requires:       python-iso8601
@@ -63,22 +65,25 @@ Requires:       python-netaddr
 Requires:       python-six >= 1.9.0
 Requires:       python-babel
 Requires:       python-oauthlib
-Requires:       python-dogpile-cache >= 0.5.3
+Requires:       python-dogpile-cache >= 0.5.4
 Requires:       python-jsonschema
-Requires:       python-pycadf >= 0.8.0
+Requires:       python-pycadf >= 1.1.0
 Requires:       python-posix_ipc
-Requires:       python-keystonemiddleware
+Requires:       python-keystonemiddleware >= 2.0.0
 Requires:       python-oslo-concurrency >= 2.3.0
-Requires:       python-oslo-config >= 2:1.11.0
-Requires:       python-oslo-db >= 1.12.0
+Requires:       python-oslo-config >= 2:2.3.0
+Requires:       python-oslo-context >= 0.2.0
+Requires:       python-oslo-db >= 2.4.1
 Requires:       python-oslo-i18n >= 1.5.0
-Requires:       python-oslo-log >= 1.6.0
-Requires:       python-oslo-messaging >= 1.16.0
-Requires:       python-oslo-middleware >= 2.4.0
+Requires:       python-oslo-log >= 1.8.0
+Requires:       python-oslo-messaging >= 2.5.0
+Requires:       python-oslo-middleware >= 2.8.0
 Requires:       python-oslo-policy >= 0.5.0
 Requires:       python-oslo-serialization >= 1.4.0
-Requires:       python-oslo-utils >= 1.9.0
+Requires:       python-oslo-service >= 0.7.0
+Requires:       python-oslo-utils >= 2.0.0
 Requires:       python-pysaml2
+Requires:       python-stevedore >= 1.5.0
 # for Keystone Lightweight Tokens (KLWT)
 Requires:       python-cryptography
 Requires:       python-msgpack
@@ -97,19 +102,19 @@ BuildRequires:  python-sphinx >= 1.1.2
 BuildRequires:  python-oslo-sphinx >= 2.5.0
 # for API autodoc
 BuildRequires:  python-cryptography
-BuildRequires:  python-dogpile-cache
+BuildRequires:  python-dogpile-cache >= 0.5.4
 BuildRequires:  python-jsonschema
-BuildRequires:  python-keystonemiddleware
+BuildRequires:  python-keystonemiddleware >= 2.0.0
 BuildRequires:  python-ldappool
 BuildRequires:  python-memcached
 BuildRequires:  python-oauthlib
 BuildRequires:  python-oslo-concurrency >= 2.3.0
-BuildRequires:  python-oslo-db >= 1.12.0
-BuildRequires:  python-oslo-log >= 1.6.0
-BuildRequires:  python-oslo-messaging >= 1.8.0
-BuildRequires:  python-oslo-middleware >= 2.4.0
+BuildRequires:  python-oslo-db >= 2.4.1
+BuildRequires:  python-oslo-log >= 1.8.0
+BuildRequires:  python-oslo-messaging >= 2.5.0
+BuildRequires:  python-oslo-middleware >= 2.8.0
 BuildRequires:  python-oslo-policy >= 0.5.0
-BuildRequires:  python-passlib
+BuildRequires:  python-passlib >= 1.6
 BuildRequires:  python-paste-deploy
 BuildRequires:  python-pysaml2
 BuildRequires:  python-routes
