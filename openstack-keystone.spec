@@ -1,7 +1,6 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global release_name liberty
 %global service keystone
-%global milestone .0rc2
  
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
@@ -10,19 +9,17 @@ Name:           openstack-keystone
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
 Version:        8.0.0
-Release:        0.6%{?milestone}%{?dist}
+Release:        1%{?milestone}%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
 URL:            http://keystone.openstack.org/
-Source0:        http://launchpad.net/%{service}/%{release_name}/%{release_name}-rc2/+download/%{service}-%{upstream_version}.tar.gz
+Source0:        http://launchpad.net/%{service}/%{release_name}/%{version}/+download/%{service}-%{upstream_version}.tar.gz
 
 Source1:        openstack-keystone.logrotate
 Source2:        openstack-keystone.service
 Source3:        openstack-keystone.sysctl
 Source5:        openstack-keystone-sample-data
 Source20:       keystone-dist.conf
-
-# patches_base=8.0.0.0rc2
 Patch0001: 0001-sync-parameter-values-with-keystone-dist.conf.patch
 
 BuildArch:      noarch
@@ -251,6 +248,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Oct 15 2015 Alan Pevec <alan.pevec@redhat.com> 1:8.0.0-1
+- Update to upstream 8.0.0
+
 * Tue Oct 06 2015 Alan Pevec <alan.pevec@redhat.com> 1:8.0.0-0.6.0rc2
 - Update to upstream 8.0.0.0rc2
 
