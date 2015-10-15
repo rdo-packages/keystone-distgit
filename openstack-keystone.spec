@@ -70,7 +70,7 @@ Requires:       python-babel
 Requires:       python-oauthlib
 Requires:       python-dogpile-cache >= 0.5.4
 Requires:       python-jsonschema
-Requires:       python-pycadf >= 0.8.0
+Requires:       python-pycadf >= 1.1.0
 Requires:       python-posix_ipc
 Requires:       python-keystonemiddleware >= 2.0.0
 Requires:       python-oslo-concurrency >= 2.3.0
