@@ -23,6 +23,7 @@ BuildArch:      noarch
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr >= 1.8
 # Required to build keystone.conf
+BuildRequires:  python-oslo-cache >= 0.8.0
 BuildRequires:  python-oslo-config >= 2:2.3.0
 BuildRequires:  python-pycadf >= 1.1.0
 BuildRequires:  python-redis
@@ -70,6 +71,7 @@ Requires:       python-jsonschema
 Requires:       python-pycadf >= 1.1.0
 Requires:       python-posix_ipc
 Requires:       python-keystonemiddleware >= 2.0.0
+Requires:       python-oslo-cache >= 0.8.0
 Requires:       python-oslo-concurrency >= 2.3.0
 Requires:       python-oslo-config >= 2:2.3.0
 Requires:       python-oslo-context >= 0.2.0
