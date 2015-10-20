@@ -136,6 +136,7 @@ rm -f test-requirements.txt requirements.txt
 
 # adjust paths to WSGI scripts
 sed -i 's#/local/bin#/bin#' httpd/wsgi-keystone.conf
+sed -i 's#apache2#httpd#' httpd/wsgi-keystone.conf
 
 %build
 PYTHONPATH=. oslo-config-generator --config-file=config-generator/keystone.conf
