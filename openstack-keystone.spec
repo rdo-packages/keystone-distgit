@@ -58,7 +58,6 @@ Requires:       python-routes >= 1.12
 Requires:       python-sqlalchemy >= 0.9.9
 Requires:       python-webob >= 1.2.3
 Requires:       python-passlib >= 1.6
-Requires:       MySQL-python
 Requires:       PyPAM
 Requires:       python-iso8601
 Requires:       openssl
