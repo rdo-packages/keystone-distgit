@@ -8,12 +8,13 @@ Name:           openstack-keystone
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
-Version:        8.0.0
+Version:        8.0.1
 Release:        1%{?milestone}%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
 URL:            http://keystone.openstack.org/
-Source0:        http://launchpad.net/%{service}/%{release_name}/%{version}/+download/%{service}-%{upstream_version}.tar.gz
+#Source0:        http://launchpad.net/%{service}/%{release_name}/%{version}/+download/%{service}-%{upstream_version}.tar.gz
+Source0:        http://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 
 Source1:        openstack-keystone.logrotate
 Source2:        openstack-keystone.service
@@ -248,6 +249,9 @@ exit 0
 %endif
 
 %changelog
+* Mon Dec 21 2015 Haikel Guemar <hguemar@fedoraproject.org> 1:8.0.1-1
+- Update to upstream 8.0.1
+
 * Thu Oct 15 2015 Alan Pevec <alan.pevec@redhat.com> 1:8.0.0-1
 - Update to upstream 8.0.0
 
