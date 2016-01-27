@@ -1,3 +1,5 @@
-# UUID                                  	Group Name
-#
-af57c2fe67fe64d0ccccb4d32b55725eec6df41c	keystone-distgit-ptl
+# UUID          Group Name
+6ddfecad023c6f4fa3ac8c4d2583c502ea675a73 	Non-Interactive Users
+ddd70cb233054a4655942ce3c1f66d0c121c5933       	keystone-distgit-core
+af57c2fe67fe64d0ccccb4d32b55725eec6df41c        	keystone-distgit-ptl
+global:Registered-Users		Registered Users
