@@ -5,19 +5,20 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           openstack-keystone
-Version:        2015.1.2
+Version:        2015.1.3
 Release:        1%{?milestone}%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
 URL:            http://keystone.openstack.org/
-Source0:        http://launchpad.net/%{service}/%{release_name}/%{version}/+download/%{service}-%{upstream_version}.tar.gz
+Source0:        http://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 Source1:        openstack-keystone.logrotate
 Source2:        openstack-keystone.service
 Source3:        openstack-keystone.sysctl
 Source5:        openstack-keystone-sample-data
-Source20:       keystone-dist.conf
 
 Patch0001: 0001-sync-parameter-values-with-keystone-dist.conf.patch
+
+Source20:       keystone-dist.conf
 
 BuildArch:      noarch
 BuildRequires:  python2-devel
@@ -222,6 +223,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Feb 03 2016 Haikel Guemar <hguemar@fedoraproject.org> 2015.1.3-1
+- Update to 2015.1.3
+
 * Thu Oct 15 2015 Alan Pevec <alan.pevec@redhat.com> 2015.1.2-1
 - Update to upstream 2015.1.2
 
