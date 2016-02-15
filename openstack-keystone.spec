@@ -153,7 +153,7 @@ rm -fr %{buildroot}%{python2_sitelib}/keystone/tests
 
 install -d -m 755 %{buildroot}%{_sysconfdir}/keystone
 install -p -D -m 640 etc/keystone.conf.sample %{buildroot}%{_sysconfdir}/keystone/keystone.conf
-install -p -D -m 644 etc/keystone-paste.ini %{buildroot}%{_datadir}/keystone/keystone-dist-paste.ini
+install -p -D -m 640 etc/keystone-paste.ini %{buildroot}%{_sysconfdir}/keystone/keystone-paste.ini
 install -p -D -m 644 %{SOURCE20} %{buildroot}%{_datadir}/keystone/keystone-dist.conf
 install -p -D -m 644 etc/policy.v3cloudsample.json %{buildroot}%{_datadir}/keystone/policy.v3cloudsample.json
 install -p -D -m 640 etc/logging.conf.sample %{buildroot}%{_sysconfdir}/keystone/logging.conf
@@ -214,7 +214,6 @@ exit 0
 %{_bindir}/openstack-keystone-sample-data
 %dir %{_datadir}/keystone
 %attr(0644, root, keystone) %{_datadir}/keystone/keystone-dist.conf
-%attr(0644, root, keystone) %{_datadir}/keystone/keystone-dist-paste.ini
 %attr(0644, root, keystone) %{_datadir}/keystone/policy.v3cloudsample.json
 %attr(0755, root, root) %{_datadir}/keystone/sample_data.sh
 %attr(0644, root, keystone) %{_datadir}/keystone/keystone.wsgi
@@ -222,6 +221,7 @@ exit 0
 %{_unitdir}/openstack-keystone.service
 %dir %attr(0750, root, keystone) %{_sysconfdir}/keystone
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/keystone.conf
+%config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/keystone-paste.ini
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/logging.conf
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/default_catalog.templates
 %config(noreplace) %attr(0640, keystone, keystone) %{_sysconfdir}/keystone/policy.json
