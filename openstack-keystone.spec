@@ -95,6 +95,17 @@ Keystone is a Python implementation of the OpenStack
 
 This package contains the Keystone Python library.
 
+%package -n python-%{service}-tests
+Summary:        Keystone tests
+Requires:       openstack-%{service} = %{epoch}:%{version}-%{release}
+
+%description -n python-%{service}-tests
+Keystone is a Python implementation of the OpenStack
+(http://www.openstack.org) identity service API.
+
+This package contains the Keystone test files.
+
+
 %if 0%{?with_doc}
 %package doc
 Summary:        Documentation for OpenStack Identity Service
@@ -147,9 +158,6 @@ PYTHONPATH=. oslo-config-generator --config-file=config-generator/keystone.conf
 
 %install
 %{__python2} setup.py install --skip-build --root %{buildroot}
-
-# Delete tests
-rm -fr %{buildroot}%{python2_sitelib}/keystone/tests
 
 install -d -m 755 %{buildroot}%{_sysconfdir}/keystone
 install -p -D -m 640 etc/keystone.conf.sample %{buildroot}%{_sysconfdir}/keystone/keystone.conf
@@ -237,6 +245,11 @@ exit 0
 %license LICENSE
 %{python2_sitelib}/keystone
 %{python2_sitelib}/keystone-*.egg-info
+%exclude %{python2_sitelib}/%{service}/tests
+
+%files -n python-%{service}-tests
+%license LICENSE
+%{python2_sitelib}/%{service}/tests
 
 %if 0%{?with_doc}
 %files doc
