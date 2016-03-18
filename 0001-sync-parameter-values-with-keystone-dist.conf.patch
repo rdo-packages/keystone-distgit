@@ -1,4 +1,4 @@
-From aec198ba7b09a7c15d7cd639db08eff76f2e11f5 Mon Sep 17 00:00:00 2001
+From 4a5288e3509eba3fae0dbf06e30d867cf6e3e576 Mon Sep 17 00:00:00 2001
 From: Alan Pevec <apevec@redhat.com>
 Date: Mon, 9 Sep 2013 15:22:20 +0200
 Subject: [PATCH] sync parameter values with keystone-dist.conf
@@ -11,7 +11,7 @@ Change-Id: If36c384f86843a6506a494d79beca65639fb3480
  1 file changed, 8 insertions(+), 7 deletions(-)
 
 diff --git a/etc/keystone.conf.sample b/etc/keystone.conf.sample
-index ec5a08c..99f89a6 100644
+index 8e5ea13..43f7faa 100644
 --- a/etc/keystone.conf.sample
 +++ b/etc/keystone.conf.sample
 @@ -122,10 +122,11 @@
@@ -56,7 +56,7 @@ index ec5a08c..99f89a6 100644
  
  # The SQLAlchemy connection string to use to connect to the slave database.
  # (string value)
-@@ -1652,7 +1653,7 @@
+@@ -1660,7 +1661,7 @@
  
  # Name of the paste configuration file that defines the available pipelines.
  # (string value)

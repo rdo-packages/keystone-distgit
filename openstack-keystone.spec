@@ -8,7 +8,7 @@ Name:           openstack-keystone
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
-Version:        8.0.1
+Version:        8.1.0
 Release:        1%{?milestone}%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
@@ -21,6 +21,7 @@ Source2:        openstack-keystone.service
 Source3:        openstack-keystone.sysctl
 Source5:        openstack-keystone-sample-data
 Source20:       keystone-dist.conf
+
 Patch0001: 0001-sync-parameter-values-with-keystone-dist.conf.patch
 
 BuildArch:      noarch
@@ -249,6 +250,9 @@ exit 0
 %endif
 
 %changelog
+* Fri Mar 18 2016 Alan Pevec <alan.pevec@redhat.com> 1:8.1.0-1
+- Update to 8.1.0
+
 * Mon Dec 21 2015 Haikel Guemar <hguemar@fedoraproject.org> 1:8.0.1-1
 - Update to upstream 8.0.1
 
