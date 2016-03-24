@@ -1,3 +1,4 @@
+%define milestone .0rc1
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global service keystone
 
@@ -7,12 +8,12 @@ Name:           openstack-keystone
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
-Version:        XXX
-Release:        XXX
+Version:        9.0.0
+Release:        0.1%{?milestone}%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
 URL:            http://keystone.openstack.org/
-Source0:        http://tarballs.openstack.org/%{service}/%{service}-master.tar.gz
+Source0:        http://tarballs.openstack.org/%{service}/%{service}-%{version}%{?milestone}.tar.gz
 Source1:        openstack-keystone.logrotate
 Source2:        openstack-keystone.service
 Source3:        openstack-keystone.sysctl
@@ -258,3 +259,5 @@ exit 0
 %endif
 
 %changelog
+* Thu Mar 24 2016 RDO <rdo-list@redhat.com> 9.0.0-0.1.0rc1
+- RC1 Rebuild for Mitaka rc1
