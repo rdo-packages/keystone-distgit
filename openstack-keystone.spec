@@ -246,10 +246,12 @@ exit 0
 %{python2_sitelib}/keystone
 %{python2_sitelib}/keystone-*.egg-info
 %exclude %{python2_sitelib}/%{service}/tests
+%exclude %{python2_sitelib}/keystone_tempest_plugin
 
 %files -n python-%{service}-tests
 %license LICENSE
 %{python2_sitelib}/%{service}/tests
+%{python2_sitelib}/keystone_tempest_plugin
 
 %if 0%{?with_doc}
 %files doc
