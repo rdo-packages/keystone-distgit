@@ -21,6 +21,7 @@ Source20:       keystone-dist.conf
 
 BuildArch:      noarch
 BuildRequires:  python2-devel
+BuildRequires:  python-osprofiler >= 1.1.0
 BuildRequires:  python-pbr >= 1.8
 # Required to build keystone.conf
 BuildRequires:  python-oslo-cache >= 1.5.0
@@ -83,6 +84,7 @@ Requires:       python-oslo-policy >= 0.5.0
 Requires:       python-oslo-serialization >= 2.4.0
 Requires:       python-oslo-service >= 1.7.0
 Requires:       python-oslo-utils >= 3.7.0
+Requires:       python-osprofiler >= 1.1.0
 Requires:       python-pysaml2
 Requires:       python-stevedore >= 1.5.0
 # for Keystone Lightweight Tokens (KLWT)
