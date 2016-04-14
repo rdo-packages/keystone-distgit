@@ -208,7 +208,7 @@ exit 0
 %systemd_post openstack-keystone.service
 %sysctl_apply openstack-keystone.conf
 # Install keystone.log file before, so both keystone & root users can write in it.
-touch %{buildroot}%{_localstatedir}/log/keystone/keystone.log
+touch %{_localstatedir}/log/keystone/keystone.log
 
 %preun
 %systemd_preun openstack-keystone.service
