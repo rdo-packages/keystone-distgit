@@ -205,6 +205,10 @@ exit 0
 %post
 %systemd_post openstack-keystone.service
 %sysctl_apply openstack-keystone.conf
+# Install keystone.log file before, so both keystone & root users can write in it.
+touch %{_localstatedir}/log/keystone/keystone.log
+chown root:keystone %{_localstatedir}/log/keystone/keystone.log
+chmod 660 %{_localstatedir}/log/keystone/keystone.log
 
 %preun
 %systemd_preun openstack-keystone.service
@@ -238,6 +242,7 @@ exit 0
 %config(noreplace) %{_sysconfdir}/logrotate.d/openstack-keystone
 %dir %attr(-, keystone, keystone) %{_sharedstatedir}/keystone
 %dir %attr(0750, keystone, keystone) %{_localstatedir}/log/keystone
+%ghost %attr(0660, root, keystone) %{_localstatedir}/log/keystone/keystone.log
 %{_prefix}/lib/sysctl.d/openstack-keystone.conf
 
 
