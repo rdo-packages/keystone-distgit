@@ -208,6 +208,7 @@ exit 0
 # Install keystone.log file before, so both keystone & root users can write in it.
 touch %{_localstatedir}/log/keystone/keystone.log
 chown root:keystone %{_localstatedir}/log/keystone/keystone.log
+chmod 660 %{_localstatedir}/log/keystone/keystone.log
 
 %preun
 %systemd_preun openstack-keystone.service
