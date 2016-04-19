@@ -14,7 +14,6 @@ License:        ASL 2.0
 URL:            http://keystone.openstack.org/
 Source0:        http://tarballs.openstack.org/%{service}/%{service}-master.tar.gz
 Source1:        openstack-keystone.logrotate
-Source2:        openstack-keystone.service
 Source3:        openstack-keystone.sysctl
 Source5:        openstack-keystone-sample-data
 Source20:       keystone-dist.conf
@@ -49,7 +48,6 @@ This package contains the Keystone daemon.
 Summary:          Keystone Python libraries
 
 Requires:       python-pbr
-Requires:       python-eventlet
 Requires:       python-ldap
 Requires:       python-ldappool
 Requires:       python-memcached
@@ -82,7 +80,6 @@ Requires:       python-oslo-messaging >= 4.5.0
 Requires:       python-oslo-middleware >= 3.7.0
 Requires:       python-oslo-policy >= 0.5.0
 Requires:       python-oslo-serialization >= 2.4.0
-Requires:       python-oslo-service >= 1.7.0
 Requires:       python-oslo-utils >= 3.7.0
 Requires:       python-osprofiler >= 1.1.0
 Requires:       python-pysaml2
@@ -172,7 +169,6 @@ install -p -D -m 640 etc/default_catalog.templates %{buildroot}%{_sysconfdir}/ke
 install -p -D -m 640 etc/policy.json %{buildroot}%{_sysconfdir}/keystone/policy.json
 install -p -D -m 640 etc/sso_callback_template.html %{buildroot}%{_sysconfdir}/keystone/sso_callback_template.html
 install -p -D -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/openstack-keystone
-install -p -D -m 644 %{SOURCE2} %{buildroot}%{_unitdir}/openstack-keystone.service
 install -d -m 755 %{buildroot}%{_prefix}/lib/sysctl.d
 install -p -D -m 644 %{SOURCE3} %{buildroot}%{_prefix}/lib/sysctl.d/openstack-keystone.conf
 # Install sample data script.
@@ -205,24 +201,16 @@ useradd --uid 163 -r -g keystone -d %{_sharedstatedir}/keystone -s /sbin/nologin
 exit 0
 
 %post
-%systemd_post openstack-keystone.service
 %sysctl_apply openstack-keystone.conf
 # Install keystone.log file before, so both keystone & root users can write in it.
 touch %{_localstatedir}/log/keystone/keystone.log
 chown root:keystone %{_localstatedir}/log/keystone/keystone.log
 chmod 660 %{_localstatedir}/log/keystone/keystone.log
 
-%preun
-%systemd_preun openstack-keystone.service
-
-%postun
-%systemd_postun_with_restart openstack-keystone.service
-
 %files
 %license LICENSE
 %doc README.rst
 %{_mandir}/man1/keystone*.1.gz
-%{_bindir}/keystone-all
 %{_bindir}/keystone-wsgi-admin
 %{_bindir}/keystone-wsgi-public
 %{_bindir}/keystone-manage
@@ -233,7 +221,6 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %attr(0755, root, root) %{_datadir}/keystone/sample_data.sh
 %attr(0644, root, keystone) %{_datadir}/keystone/keystone.wsgi
 %attr(0644, root, keystone) %{_datadir}/keystone/wsgi-keystone.conf
-%{_unitdir}/openstack-keystone.service
 %dir %attr(0750, root, keystone) %{_sysconfdir}/keystone
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/keystone.conf
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/keystone-paste.ini
