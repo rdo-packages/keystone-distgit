@@ -28,6 +28,8 @@ BuildRequires:  python-oslo-config >= 2:3.9.0
 BuildRequires:  python-pycadf >= 2.1.0
 BuildRequires:  python-redis
 BuildRequires:  python-zmq
+# Required to compile translation files
+BuildRequires:    python-babel
 
 Requires:       python-keystone = %{epoch}:%{version}-%{release}
 Requires:       python-keystoneclient >= 1:2.3.1
@@ -154,6 +156,14 @@ sed -i 's#apache2#httpd#' httpd/wsgi-keystone.conf
 PYTHONPATH=. oslo-config-generator --config-file=config-generator/keystone.conf
 # distribution defaults are located in keystone-dist.conf
 
+# Generate i18n files
+
+%{__python2} setup.py compile_catalog
+echo >> keystone.egg-info/SOURCES.txt
+ls keystone/locale/*/LC_*/keystone*mo >> keystone.egg-info/SOURCES.txt
+sed -i '/keystone\/locale\/.*\/LC_.*\/keystone.*.po/d' keystone.egg-info/SOURCES.txt
+sed -i '/keystone\/locale\/keystone.*.pot/d' keystone.egg-info/SOURCES.txt
+
 %{__python2} setup.py build
 
 %install
@@ -191,6 +201,13 @@ install -p -D -m 644 build/man/*.1 %{buildroot}%{_mandir}/man1/
 popd
 # Fix hidden-file-or-dir warnings
 rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo
+
+# Install i18n files
+install -d -m 755 %{buildroot}%{_datadir}
+mv %{buildroot}%{python2_sitelib}/keystone/locale %{buildroot}%{_datadir}/locale
+
+# Find language files
+%find_lang keystone --all-name
 
 %pre
 # 163:163 for keystone (openstack-keystone) - rhbz#752842
@@ -235,7 +252,7 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %{_prefix}/lib/sysctl.d/openstack-keystone.conf
 
 
-%files -n python-keystone
+%files -n python-keystone -f keystone.lang
 %defattr(-,root,root,-)
 %license LICENSE
 %{python2_sitelib}/keystone
