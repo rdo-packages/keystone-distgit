@@ -255,3 +255,4 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %endif
 
 %changelog
+# REMOVEME: error caused by commit 
