@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_f5f7e38a",
+        "filename": "openstack-keystone.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-05-27T09:57:58Z",
+      "side": 1,
+      "message": "I think upstream project is copying config files to /usr/etc by mistake and probably they will fix it but we can implement this workaround in the meanwhile.",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 44
+      },
+      "revId": "7ade6d56d2255c2c66ac383dc9380a1c548e77c9",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
