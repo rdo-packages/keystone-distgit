@@ -181,6 +181,10 @@ install -p -D -m 644 httpd/wsgi-keystone.conf  %{buildroot}%{_datadir}/keystone/
 install -d -m 755 %{buildroot}%{_sharedstatedir}/keystone
 install -d -m 755 %{buildroot}%{_localstatedir}/log/keystone
 
+# cleanup config files installed by keystone
+# we already generate them w/ oslo-config-generator
+rm -rf %{buildroot}/%{_prefix}%{_sysconfdir}
+
 # docs generation requires everything to be installed first
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
 pushd doc
