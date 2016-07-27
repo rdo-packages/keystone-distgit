@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a106d94_43cf06b1",
+        "filename": "openstack-keystone.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-07-27T19:59:43Z",
+      "side": 1,
+      "message": "good point, we still want man pages",
+      "revId": "6c60bd373aef5655c2aa8d6417d3f432522d4656",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
