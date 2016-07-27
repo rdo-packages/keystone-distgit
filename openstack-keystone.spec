@@ -25,11 +25,15 @@ BuildRequires:  python-pbr >= 1.8
 # Required to build keystone.conf
 BuildRequires:  python-oslo-cache >= 1.5.0
 BuildRequires:  python-oslo-config >= 2:3.9.0
+BuildRequires:  python-passlib >= 1.6
 BuildRequires:  python-pycadf >= 2.1.0
 BuildRequires:  python-redis
 BuildRequires:  python-zmq
 # Required to compile translation files
 BuildRequires:    python-babel
+# Required to build man pages
+BuildRequires:  python-oslo-sphinx >= 2.5.0
+BuildRequires:  python-sphinx >= 1.1.2
 
 Requires:       python-keystone = %{epoch}:%{version}-%{release}
 Requires:       python-keystoneclient >= 1:2.3.1
@@ -112,8 +116,6 @@ This package contains the Keystone test files.
 %package doc
 Summary:        Documentation for OpenStack Identity Service
 
-BuildRequires:  python-sphinx >= 1.1.2
-BuildRequires:  python-oslo-sphinx >= 2.5.0
 # for API autodoc
 BuildRequires:  python-cryptography
 BuildRequires:  python-dogpile-cache >= 0.5.7
@@ -128,7 +130,6 @@ BuildRequires:  python-oslo-log >= 3.2.0
 BuildRequires:  python-oslo-messaging >= 4.5.0
 BuildRequires:  python-oslo-middleware >= 3.7.0
 BuildRequires:  python-oslo-policy >= 0.5.0
-BuildRequires:  python-passlib >= 1.6
 BuildRequires:  python-paste-deploy
 BuildRequires:  python-pysaml2
 BuildRequires:  python-routes
@@ -192,13 +193,17 @@ rm -rf %{buildroot}/%{_prefix}%{_sysconfdir}
 # docs generation requires everything to be installed first
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
 pushd doc
+%if 0%{?with_doc}
 make html
+%endif
 make man
 mkdir -p %{buildroot}%{_mandir}/man1
 install -p -D -m 644 build/man/*.1 %{buildroot}%{_mandir}/man1/
 popd
+%if 0%{?with_doc}
 # Fix hidden-file-or-dir warnings
 rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo
+%endif
 
 # Install i18n .mo files (.po and .pot are not required)
 install -d -m 755 %{buildroot}%{_datadir}
