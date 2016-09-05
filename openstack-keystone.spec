@@ -277,3 +277,4 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %endif
 
 %changelog
+# DUMMY change to test Keystone 10.0.0.0b3
