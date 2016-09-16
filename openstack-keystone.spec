@@ -12,7 +12,7 @@ Release:        XXX
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
 URL:            http://keystone.openstack.org/
-Source0:        http://tarballs.openstack.org/%{service}/%{service}-master.tar.gz
+Source0:        https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 Source1:        openstack-keystone.logrotate
 Source3:        openstack-keystone.sysctl
 Source5:        openstack-keystone-sample-data
