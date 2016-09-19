@@ -16,6 +16,24 @@
       "revId": "e6f8e3397f3c53eb75fefd44899cc6059bfacf49",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "facab960_c4ecbcca",
+        "filename": "openstack-keystone.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-09-19T10:47:45Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "facab960_24e72842",
+      "revId": "e6f8e3397f3c53eb75fefd44899cc6059bfacf49",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
