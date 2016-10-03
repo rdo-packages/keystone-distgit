@@ -87,7 +87,7 @@ Requires:       python-oslo-config >= 2:3.14.0
 Requires:       python-oslo-context >= 2.9.0
 Requires:       python-oslo-db >= 4.10.0
 Requires:       python-oslo-i18n >= 3.4.0
-Requires:       python-oslo-log >= 3.2.0
+Requires:       python-oslo-log >= 3.16.0
 Requires:       python-oslo-messaging >= 5.2.0
 Requires:       python-oslo-middleware >= 3.7.0
 Requires:       python-oslo-policy >= 1.9.0
@@ -132,7 +132,7 @@ BuildRequires:  python-memcached
 BuildRequires:  python-oauthlib
 BuildRequires:  python-oslo-concurrency >= 3.6.0
 BuildRequires:  python-oslo-db >= 4.6.0
-BuildRequires:  python-oslo-log >= 3.2.0
+BuildRequires:  python-oslo-log >= 3.16.0
 BuildRequires:  python-oslo-messaging >= 4.5.0
 BuildRequires:  python-oslo-middleware >= 3.7.0
 BuildRequires:  python-oslo-policy >= 0.5.0
