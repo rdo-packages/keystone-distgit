@@ -1,4 +1,3 @@
-%global milestone .0rc3
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global service keystone
 
@@ -9,15 +8,11 @@ Name:           openstack-keystone
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
 Version:        10.0.0
-Release:        0.3%{?milestone}%{?dist}
+Release:        1%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
 URL:            http://keystone.openstack.org/
 Source0:        https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
-#
-# patches_base=10.0.0.0rc3
-#
-
 Source1:        openstack-keystone.logrotate
 Source3:        openstack-keystone.sysctl
 Source5:        openstack-keystone-sample-data
@@ -283,6 +278,9 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %endif
 
 %changelog
+* Thu Oct 06 2016 Haikel Guemar <hguemar@fedoraproject.org> 1:10.0.0-1
+- Update to 10.0.0
+
 * Wed Oct 05 2016 Alfredo Moralejo <amoralej@redhat.com> 1:10.0.0-0.3.0rc3
 - Update to 10.0.0.0rc3
 
