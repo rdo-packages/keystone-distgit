@@ -165,6 +165,9 @@ PYTHONPATH=. oslo-config-generator --config-file=config-generator/keystone.conf
 %install
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
+# Create fake egg-info for the tempest plugin
+%py2_entrypoint %{service} %{service}
+
 install -d -m 755 %{buildroot}%{_sysconfdir}/keystone
 install -p -D -m 640 etc/keystone.conf.sample %{buildroot}%{_sysconfdir}/keystone/keystone.conf
 install -p -D -m 640 etc/keystone-paste.ini %{buildroot}%{_sysconfdir}/keystone/keystone-paste.ini
@@ -268,6 +271,7 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %license LICENSE
 %{python2_sitelib}/%{service}/tests
 %{python2_sitelib}/keystone_tempest_plugin
+%{python2_sitelib}/%{service}_tests.egg-info
 
 %if 0%{?with_doc}
 %files doc
