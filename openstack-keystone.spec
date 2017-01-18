@@ -19,6 +19,7 @@ Source5:        openstack-keystone-sample-data
 Source20:       keystone-dist.conf
 
 BuildArch:      noarch
+BuildRequires:  openstack-macros
 BuildRequires:  python2-devel
 BuildRequires:  python-osprofiler >= 1.1.0
 BuildRequires:  python-pbr >= 1.8
