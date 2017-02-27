@@ -161,7 +161,7 @@ PYTHONPATH=. oslo-config-generator --config-file=config-generator/keystone.conf
 
 %{__python2} setup.py build
 # Generate i18n files
-%{__python2} setup.py compile_catalog -d build/lib/%{service}/locale
+%{__python2} setup.py compile_catalog -d build/lib/%{service}/locale -D keystone
 
 %install
 %{__python2} setup.py install --skip-build --root %{buildroot}
