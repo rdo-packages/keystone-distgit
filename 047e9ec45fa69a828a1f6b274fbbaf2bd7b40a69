@@ -16,6 +16,24 @@
       "revId": "047e9ec45fa69a828a1f6b274fbbaf2bd7b40a69",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac4a560_fb4a47ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-02-27T14:23:04Z",
+      "side": 1,
+      "message": "I\u0027m figuring out if it\u0027s a zanata bug, it doesn\u0027t looks like a problem in the import process itself, as the files disapeared from https://translate.openstack.org/ too.",
+      "parentUuid": "5ac4a560_9b6cf338",
+      "revId": "047e9ec45fa69a828a1f6b274fbbaf2bd7b40a69",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
