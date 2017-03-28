@@ -1,6 +1,9 @@
-# UUID                                  	Group Name
-#
-63673ea7f2ae6a5666566b1ea9f14e473d00f5a9	rdo-core
-af57c2fe67fe64d0ccccb4d32b55725eec6df41c	openstack/keystone-distgit-ptl
-ddd70cb233054a4655942ce3c1f66d0c121c5933	openstack/keystone-distgit-core
-global:Registered-Users                 	Registered Users
+# UUID Group Name
+global:Registered-Users	Registered Users
+3df5759d16dc29a5d5f0bf8a6c4e40b9f0297b5d	openstack/keystone-ptl
+4572c517702492251ad622a289176552a8acbbb2	rdo-superusers
+b9ab1849b87a4fd5a2b5264108f0a0cd0bad7845	openstack/keystone-core
+global:Anonymous-Users	Anonymous Users
+05a678d3d4a168e149d5e8a0063bbd1b1c5526da	Administrators
+401cf37bee35d1c809d4d957e55f2a304f8eed69	rdo-provenpackagers
+6ddfecad023c6f4fa3ac8c4d2583c502ea675a73	Non-Interactive Users
