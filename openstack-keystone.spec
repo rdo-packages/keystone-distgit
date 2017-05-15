@@ -34,6 +34,7 @@ BuildRequires:  python-zmq
 BuildRequires:    python-babel
 # Required to build man pages
 BuildRequires:  python-oslo-sphinx >= 2.5.0
+BuildRequires:  python-oslo-policy
 BuildRequires:  python-sphinx >= 1.1.2
 
 Requires:       python-keystone = %{epoch}:%{version}-%{release}
