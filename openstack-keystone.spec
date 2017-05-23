@@ -7,7 +7,7 @@ Name:           openstack-keystone
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
-Version:        9.2.0
+Version:        9.3.0
 Release:        1%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
@@ -260,6 +260,9 @@ exit 0
 %endif
 
 %changelog
+* Tue May 23 2017 Alfredo Moralejo <amoralej@redhat.com> 1:9.3.0-1
+- Update to 9.3.0
+
 * Thu Sep 22 2016 Haikel Guemar <hguemar@fedoraproject.org> 1:9.2.0-1
 - Update to 9.2.0
 
