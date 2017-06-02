@@ -1,0 +1,8 @@
+Code-Review+2: Alan Pevec <alan.pevec@redhat.com>
+Workflow+1: Alan Pevec <alan.pevec@redhat.com>
+Verified+2: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-by: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-at: Fri, 02 Jun 2017 19:54:06 +0000
+Reviewed-on: https://review.rdoproject.org/r/6960
+Project: openstack/keystone-distgit
+Branch: refs/heads/rpm-master
