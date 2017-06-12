@@ -56,6 +56,7 @@ This package contains the Keystone daemon.
 Summary:          Keystone Python libraries
 
 Requires:       python-pbr
+Requires:       python-bcrypt
 Requires:       python-ldap
 Requires:       python-ldappool
 Requires:       python-memcached
@@ -93,6 +94,7 @@ Requires:       python-oslo-utils >= 3.18.0
 Requires:       python-osprofiler >= 1.4.0
 Requires:       python-pysaml2 >= 2.4.0
 Requires:       python-stevedore >= 1.17.1
+Requires:       python-scrypt
 # for Keystone Lightweight Tokens (KLWT)
 Requires:       python-cryptography
 Requires:       python-msgpack
