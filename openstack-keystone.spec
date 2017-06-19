@@ -160,6 +160,8 @@ sed -i 's#apache2#httpd#' httpd/wsgi-keystone.conf
 
 %build
 PYTHONPATH=. oslo-config-generator --config-file=config-generator/keystone.conf
+PYTHONPATH=. oslo-config-generator --config-file=config-generator/keystone.conf --format yaml > %{service}-schema.yaml
+PYTHONPATH=. oslo-config-generator --config-file=config-generator/keystone.conf --format json > %{service}-schema.json
 # distribution defaults are located in keystone-dist.conf
 
 %{__python2} setup.py build
@@ -181,6 +183,8 @@ install -d -m 755 %{buildroot}%{_sysconfdir}/keystone
 install -p -D -m 640 etc/keystone.conf.sample %{buildroot}%{_sysconfdir}/keystone/keystone.conf
 install -p -D -m 640 etc/keystone-paste.ini %{buildroot}%{_sysconfdir}/keystone/keystone-paste.ini
 install -p -D -m 640 policy.json %{buildroot}%{_sysconfdir}/keystone/policy.json
+install -p -D -m 640 %{service}-schema.yaml %{buildroot}%{_sysconfdir}/%{service}/%{service}-schema.yaml
+install -p -D -m 640 %{service}-schema.json %{buildroot}%{_sysconfdir}/%{service}/%{service}-schema.json
 install -p -D -m 644 %{SOURCE20} %{buildroot}%{_datadir}/keystone/keystone-dist.conf
 install -p -D -m 644 etc/policy.v3cloudsample.json %{buildroot}%{_datadir}/keystone/policy.v3cloudsample.json
 install -p -D -m 640 etc/logging.conf.sample %{buildroot}%{_sysconfdir}/keystone/logging.conf
@@ -259,6 +263,8 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/keystone-paste.ini
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/logging.conf
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/policy.json
+%config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/%{service}/%{service}-schema.yaml
+%config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/%{service}/%{service}-schema.json
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/default_catalog.templates
 %config(noreplace) %attr(0640, keystone, keystone) %{_sysconfdir}/keystone/sso_callback_template.html
 %config(noreplace) %{_sysconfdir}/logrotate.d/openstack-keystone
