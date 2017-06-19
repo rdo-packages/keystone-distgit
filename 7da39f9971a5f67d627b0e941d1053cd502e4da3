@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9aa7fdbe_046f9a93",
+        "filename": "openstack-keystone.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 335
+      },
+      "writtenOn": "2017-06-19T19:20:12Z",
+      "side": 1,
+      "message": "This is going to leave you without a lot of the options that would go in the regular sample config.  Ideally we would pass --config-file\u003dconfig-generator/keystone.conf but override the format and output_file only.  I\u0027m not sure if that can be done solely with cli opts or if we\u0027ll actually need to tweak the config file to do that.\n\nFor reference, there are currently 8 namespaces included in the keystone sample config: https://github.com/openstack/keystone/blob/master/config-generator/keystone.conf\n\nI believe nova has quite a few more than that so I don\u0027t think we want to try to list them all manually.",
+      "range": {
+        "startLine": 163,
+        "startChar": 35,
+        "endLine": 163,
+        "endChar": 57
+      },
+      "revId": "7da39f9971a5f67d627b0e941d1053cd502e4da3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
