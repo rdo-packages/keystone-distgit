@@ -139,6 +139,13 @@ BuildRequires:  python-oslo-policy >= 0.5.0
 BuildRequires:  python-paste-deploy
 BuildRequires:  python-pysaml2
 BuildRequires:  python-routes
+BuildRequires:  python-lxml
+BuildRequires:  python-webtest
+BuildRequires:  python-mock
+BuildRequires:  python-freezegun
+BuildRequires:  python-testresources
+BuildRequires:  python-oslotest
+BuildRequires:  python-pep8
 
 %description doc
 Keystone is a Python implementation of the OpenStack
@@ -209,14 +216,12 @@ rm -rf %{buildroot}/%{_prefix}%{_sysconfdir}
 
 # docs generation requires everything to be installed first
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
-pushd doc
 %if 0%{?with_doc}
-make html
+%{__python2} setup.py build_sphinx -b html
 %endif
-make man
+%{__python2} setup.py build_sphinx -b man
 mkdir -p %{buildroot}%{_mandir}/man1
-install -p -D -m 644 build/man/*.1 %{buildroot}%{_mandir}/man1/
-popd
+install -p -D -m 644 doc/build/man/*.1 %{buildroot}%{_mandir}/man1/
 %if 0%{?with_doc}
 # Fix hidden-file-or-dir warnings
 rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo
