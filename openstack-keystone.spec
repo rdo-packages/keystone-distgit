@@ -37,6 +37,13 @@ BuildRequires:  python-openstackdocstheme
 BuildRequires:  python-oslo-sphinx >= 2.5.0
 BuildRequires:  python-oslo-policy
 BuildRequires:  python-sphinx >= 1.1.2
+BuildRequires:  python-lxml
+BuildRequires:  python-webtest
+BuildRequires:  python-mock
+BuildRequires:  python-freezegun
+BuildRequires:  python-testresources
+BuildRequires:  python-oslotest
+BuildRequires:  python-pep8
 
 Requires:       python-keystone = %{epoch}:%{version}-%{release}
 Requires:       python-keystoneclient >= 1:3.8.0
@@ -209,14 +216,12 @@ rm -rf %{buildroot}/%{_prefix}%{_sysconfdir}
 
 # docs generation requires everything to be installed first
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
-pushd doc
 %if 0%{?with_doc}
-make html
+%{__python} setup.py build_sphinx -b html
 %endif
-make man
+%{__python} setup.py build_sphinx -b man
 mkdir -p %{buildroot}%{_mandir}/man1
-install -p -D -m 644 build/man/*.1 %{buildroot}%{_mandir}/man1/
-popd
+install -p -D -m 644 doc/build/man/*.1 %{buildroot}%{_mandir}/man1/
 %if 0%{?with_doc}
 # Fix hidden-file-or-dir warnings
 rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo
