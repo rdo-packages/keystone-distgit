@@ -172,9 +172,6 @@ PYTHONPATH=. oslo-config-generator --config-file=config-generator/keystone.conf 
 %install
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
-# Create fake egg-info for the tempest plugin
-%py2_entrypoint %{service} %{service}
-
 # Keystone doesn't ship policy.json file but only an example
 # that contains data which might be problematic to use by default.
 # Instead, ship an empty file that operators can override.
@@ -231,6 +228,9 @@ mv %{buildroot}%{python2_sitelib}/%{service}/locale %{buildroot}%{_datadir}/loca
 # Find language files
 %find_lang %{service} --all-name
 
+# Remove Keystone Tempest plugin
+rm -f %{buildroot}%{python2_sitelib}/keystone_tempest_plugin/README.rst
+
 %pre
 # 163:163 for keystone (openstack-keystone) - rhbz#752842
 getent group keystone >/dev/null || groupadd -r --gid 163 keystone
@@ -281,13 +281,10 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %{python2_sitelib}/keystone
 %{python2_sitelib}/keystone-*.egg-info
 %exclude %{python2_sitelib}/%{service}/tests
-%exclude %{python2_sitelib}/keystone_tempest_plugin
 
 %files -n python-%{service}-tests
 %license LICENSE
 %{python2_sitelib}/%{service}/tests
-%{python2_sitelib}/keystone_tempest_plugin
-%{python2_sitelib}/%{service}_tests.egg-info
 
 %if 0%{?with_doc}
 %files doc
@@ -296,4 +293,3 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %endif
 
 %changelog
-
