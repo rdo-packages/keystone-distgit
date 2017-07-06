@@ -23,6 +23,7 @@ BuildRequires:  openstack-macros
 BuildRequires:  python2-devel
 BuildRequires:  python-osprofiler >= 1.1.0
 BuildRequires:  python-pbr >= 1.8
+BuildRequires:  git
 # Required to build keystone.conf
 BuildRequires:  python-oslo-cache >= 1.5.0
 BuildRequires:  python-oslo-config >= 2:3.9.0
@@ -34,7 +35,6 @@ BuildRequires:  python-zmq
 BuildRequires:    python-babel
 # Required to build man pages
 BuildRequires:  python-openstackdocstheme
-BuildRequires:  python-oslo-sphinx >= 2.5.0
 BuildRequires:  python-oslo-policy
 BuildRequires:  python-sphinx >= 1.1.2
 
@@ -159,7 +159,7 @@ This package contains documentation for Keystone.
 %endif
 
 %prep
-%setup -q -n keystone-%{upstream_version}
+%autosetup -n keystone-%{upstream_version} -S git
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 find keystone -name \*.py -exec sed -i '/\/usr\/bin\/env python/d' {} \;
