@@ -3,6 +3,10 @@
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
+%global common_desc \
+Keystone is a Python implementation of the OpenStack \
+(http://www.openstack.org) identity service API.
+
 Name:           openstack-keystone
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
@@ -48,8 +52,7 @@ BuildRequires: systemd
 Requires(pre):    shadow-utils
 
 %description
-Keystone is a Python implementation of the OpenStack
-(http://www.openstack.org) identity service API.
+%{common_desc}
 
 This package contains the Keystone daemon.
 
@@ -102,8 +105,7 @@ Requires:       python-msgpack
 
 
 %description -n   python-keystone
-Keystone is a Python implementation of the OpenStack
-(http://www.openstack.org) identity service API.
+%{common_desc}
 
 This package contains the Keystone Python library.
 
@@ -116,8 +118,7 @@ Requires:       openstack-%{service} = %{epoch}:%{version}-%{release}
 Requires:       python-keystone-tests-tempest
 
 %description -n python-%{service}-tests
-Keystone is a Python implementation of the OpenStack
-(http://www.openstack.org) identity service API.
+%{common_desc}
 
 This package contains the Keystone test files.
 
@@ -152,8 +153,7 @@ BuildRequires:  python-oslotest
 BuildRequires:  python-pep8
 
 %description doc
-Keystone is a Python implementation of the OpenStack
-(http://www.openstack.org) identity service API.
+%{common_desc}
 
 This package contains documentation for Keystone.
 %endif
