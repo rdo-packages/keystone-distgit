@@ -164,7 +164,7 @@ This package contains documentation for Keystone.
 find . \( -name .gitignore -o -name .placeholder \) -delete
 find keystone -name \*.py -exec sed -i '/\/usr\/bin\/env python/d' {} \;
 # Let RPM handle the dependencies
-rm -f test-requirements.txt requirements.txt
+%py_req_cleanup
 
 # adjust paths to WSGI scripts
 sed -i 's#/local/bin#/bin#' httpd/wsgi-keystone.conf
