@@ -216,7 +216,6 @@ install -d -m 755 %{buildroot}%{_localstatedir}/log/keystone
 rm -rf %{buildroot}/%{_prefix}%{_sysconfdir}
 
 # docs generation requires everything to be installed first
-export PYTHONPATH="$( pwd ):$PYTHONPATH"
 %if 0%{?with_doc}
 %{__python2} setup.py build_sphinx -b html
 %endif
