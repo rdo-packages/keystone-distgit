@@ -30,7 +30,7 @@ BuildRequires:  python-pbr >= 1.8
 BuildRequires:  git
 # Required to build keystone.conf
 BuildRequires:  python-oslo-cache >= 1.5.0
-BuildRequires:  python-oslo-config >= 2:3.9.0
+BuildRequires:  python-oslo-config >= 2:4.0.0
 BuildRequires:  python-passlib >= 1.6
 BuildRequires:  python-pycadf >= 2.1.0
 BuildRequires:  python-redis
@@ -64,40 +64,36 @@ Requires:       python-bcrypt
 Requires:       python-ldap
 Requires:       python-ldappool
 Requires:       python-memcached
-Requires:       python-migrate >= 0.9.6
+Requires:       python-migrate >= 0.11.0
 Requires:       python-paste-deploy >= 1.5.0
 Requires:       python-paste
-Requires:       python-routes >= 1.12.3
+Requires:       python-routes >= 2.3.1
 Requires:       python-sqlalchemy >= 1.0.10
-Requires:       python-webob >= 1.6.0
+Requires:       python-webob >= 1.7.1
 Requires:       python-passlib >= 1.7.0
-Requires:       PyPAM
-Requires:       python-iso8601
 Requires:       openssl
-Requires:       python-netaddr
 Requires:       python-six >= 1.9.0
 Requires:       python-babel >= 2.3.4
 Requires:       python-oauthlib >= 0.6
 Requires:       python-dogpile-cache >= 0.6.2
 Requires:       python-jsonschema
 Requires:       python-pycadf >= 2.1.0
-Requires:       python-posix_ipc
 Requires:       python-keystonemiddleware >= 4.12.0
 Requires:       python-oslo-cache >= 1.5.0
 Requires:       python-oslo-concurrency >= 3.8.0
-Requires:       python-oslo-config >= 2:3.14.0
-Requires:       python-oslo-context >= 2.9.0
-Requires:       python-oslo-db >= 4.15.0
+Requires:       python-oslo-config >= 2:4.0.0
+Requires:       python-oslo-context >= 2.14.0
+Requires:       python-oslo-db >= 4.24.0
 Requires:       python-oslo-i18n >= 3.4.0
-Requires:       python-oslo-log >= 3.16.0
-Requires:       python-oslo-messaging >= 5.14.0
-Requires:       python-oslo-middleware >= 3.7.0
-Requires:       python-oslo-policy >= 1.17.0
+Requires:       python-oslo-log >= 3.22.0
+Requires:       python-oslo-messaging >= 5.24.2
+Requires:       python-oslo-middleware >= 3.27.0
+Requires:       python-oslo-policy >= 1.23.0
 Requires:       python-oslo-serialization >= 2.4.0
-Requires:       python-oslo-utils >= 3.18.0
+Requires:       python-oslo-utils >= 3.20.0
 Requires:       python-osprofiler >= 1.4.0
 Requires:       python-pysaml2 >= 2.4.0
-Requires:       python-stevedore >= 1.17.1
+Requires:       python-stevedore >= 1.20.0
 Requires:       python-scrypt
 # for Keystone Lightweight Tokens (KLWT)
 Requires:       python-cryptography
@@ -136,10 +132,10 @@ BuildRequires:  python-ldappool
 BuildRequires:  python-memcached
 BuildRequires:  python-oauthlib
 BuildRequires:  python-oslo-concurrency >= 3.6.0
-BuildRequires:  python-oslo-db >= 4.6.0
-BuildRequires:  python-oslo-log >= 3.16.0
+BuildRequires:  python-oslo-db >= 4.24.0
+BuildRequires:  python-oslo-log >= 3.22.0
 BuildRequires:  python-oslo-messaging >= 4.5.0
-BuildRequires:  python-oslo-middleware >= 3.7.0
+BuildRequires:  python-oslo-middleware >= 3.27.0
 BuildRequires:  python-oslo-policy >= 0.5.0
 BuildRequires:  python-paste-deploy
 BuildRequires:  python-pysaml2
