@@ -1,3 +1,4 @@
+%global milestone .0rc2
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global service keystone
 
@@ -11,12 +12,16 @@ Name:           openstack-keystone
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
-Version:        XXX
-Release:        XXX
+Version:        12.0.0
+Release:        0.1%{?milestone}%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
 URL:            http://keystone.openstack.org/
 Source0:        https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
+#
+# patches_base=12.0.0.0rc2
+#
+
 Source1:        openstack-keystone.logrotate
 Source3:        openstack-keystone.sysctl
 Source5:        openstack-keystone-sample-data
@@ -294,3 +299,6 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %endif
 
 %changelog
+* Mon Aug 21 2017 Alfredo Moralejo <amoralej@redhat.com> 1:12.0.0-0.1.0rc2
+- Update to 12.0.0.0rc2
+
