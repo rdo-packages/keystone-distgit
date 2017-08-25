@@ -1,5 +1,7 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global service keystone
+# guard for package OSP does not support
+%global rhosp 0
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
@@ -36,7 +38,9 @@ BuildRequires:  python-oslo-config >= 2:4.0.0
 BuildRequires:  python-passlib >= 1.6
 BuildRequires:  python-pycadf >= 2.1.0
 BuildRequires:  python-redis
+%if 0%{rhosp} == 0
 BuildRequires:  python-zmq
+%endif
 # Required to compile translation files
 BuildRequires:    python-babel
 # Required to build man pages
