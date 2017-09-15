@@ -49,9 +49,7 @@ BuildRequires:  python-sphinx >= 1.1.2
 Requires:       python-keystone = %{epoch}:%{version}-%{release}
 Requires:       python-keystoneclient >= 1:3.8.0
 
-Requires(post): systemd
-Requires(preun): systemd
-Requires(postun): systemd
+%{?systemd_requires}
 BuildRequires: systemd
 Requires(pre):    shadow-utils
 
