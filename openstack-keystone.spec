@@ -45,6 +45,17 @@ BuildRequires:    python-babel
 BuildRequires:  python-openstackdocstheme
 BuildRequires:  python-oslo-policy
 BuildRequires:  python-sphinx >= 1.1.2
+BuildRequires:  python-jsonschema
+BuildRequires:  python-oslo-db >= 4.24.0
+BuildRequires:  python-ldappool
+BuildRequires:  python-oauthlib
+BuildRequires:  python-pysaml2
+BuildRequires:  python-keystonemiddleware >= 4.3.0
+BuildRequires:  python-webtest
+BuildRequires:  python-freezegun
+BuildRequires:  python-testresources
+BuildRequires:  python-pep8
+BuildRequires:  python-oslotest
 
 Requires:       python-keystone = %{epoch}:%{version}-%{release}
 Requires:       python-keystoneclient >= 1:3.8.0
@@ -128,27 +139,16 @@ Summary:        Documentation for OpenStack Identity Service
 # for API autodoc
 BuildRequires:  python-cryptography
 BuildRequires:  python-dogpile-cache >= 0.5.7
-BuildRequires:  python-jsonschema
-BuildRequires:  python-keystonemiddleware >= 4.3.0
-BuildRequires:  python-ldappool
 BuildRequires:  python-memcached
-BuildRequires:  python-oauthlib
 BuildRequires:  python-oslo-concurrency >= 3.6.0
-BuildRequires:  python-oslo-db >= 4.24.0
 BuildRequires:  python-oslo-log >= 3.22.0
 BuildRequires:  python-oslo-messaging >= 4.5.0
 BuildRequires:  python-oslo-middleware >= 3.27.0
 BuildRequires:  python-oslo-policy >= 0.5.0
 BuildRequires:  python-paste-deploy
-BuildRequires:  python-pysaml2
 BuildRequires:  python-routes
 BuildRequires:  python-lxml
-BuildRequires:  python-webtest
 BuildRequires:  python-mock
-BuildRequires:  python-freezegun
-BuildRequires:  python-testresources
-BuildRequires:  python-oslotest
-BuildRequires:  python-pep8
 
 %description doc
 %{common_desc}
