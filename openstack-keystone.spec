@@ -54,6 +54,7 @@ BuildRequires:  python2-keystonemiddleware >= 4.17.0
 BuildRequires:  python-webtest
 BuildRequires:  python-freezegun
 BuildRequires:  python2-testresources
+BuildRequires:  python2-testscenarios
 BuildRequires:  python-pep8
 BuildRequires:  python2-oslotest
 
