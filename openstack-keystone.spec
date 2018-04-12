@@ -1,4 +1,4 @@
-%global with_doc %{!?_without_doc:1}%{?_without_doc:0}
+%global with_doc 0
 %global service keystone
 # guard for package OSP does not support
 %global rhosp 0
@@ -217,10 +217,11 @@ rm -rf %{buildroot}/%{_prefix}%{_sysconfdir}
 # docs generation requires everything to be installed first
 %if 0%{?with_doc}
 %{__python2} setup.py build_sphinx -b html
-%endif
+
 %{__python2} setup.py build_sphinx -b man
 mkdir -p %{buildroot}%{_mandir}/man1
 install -p -D -m 644 doc/build/man/*.1 %{buildroot}%{_mandir}/man1/
+%endif
 %if 0%{?with_doc}
 # Fix hidden-file-or-dir warnings
 rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo
@@ -253,7 +254,9 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %files
 %license LICENSE
 %doc README.rst
+%if 0%{?with_doc}
 %{_mandir}/man1/keystone*.1.gz
+%endif
 %{_bindir}/keystone-wsgi-admin
 %{_bindir}/keystone-wsgi-public
 %{_bindir}/keystone-manage
@@ -297,3 +300,4 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %endif
 
 %changelog
+
