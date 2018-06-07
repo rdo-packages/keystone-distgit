@@ -109,6 +109,7 @@ Requires:       python2-osprofiler >= 1.4.0
 Requires:       python2-pysaml2 >= 2.4.0
 Requires:       python2-stevedore >= 1.20.0
 Requires:       python2-scrypt
+Requires:       python-flask
 # for Keystone Lightweight Tokens (KLWT)
 Requires:       python2-cryptography
 Requires:       python-msgpack
