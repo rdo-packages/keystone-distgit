@@ -1,4 +1,4 @@
-%global with_doc 0
+%global with_doc 1
 %global service keystone
 # guard for package OSP does not support
 %global rhosp 0
@@ -42,9 +42,7 @@ BuildRequires:  python-zmq
 # Required to compile translation files
 BuildRequires:    python2-babel
 # Required to build man pages
-BuildRequires:  python2-openstackdocstheme
 BuildRequires:  python2-oslo-policy
-BuildRequires:  python2-sphinx >= 1.1.2
 BuildRequires:  python2-jsonschema
 BuildRequires:  python2-oslo-db >= 4.27.0
 BuildRequires:  python-ldappool
@@ -139,6 +137,9 @@ This package contains the Keystone test files.
 Summary:        Documentation for OpenStack Identity Service
 
 # for API autodoc
+BuildRequires:  python2-sphinx >= 1.1.2
+BuildRequires:  python2-openstackdocstheme
+BuildRequires:  python2-sphinxcontrib-apidoc
 BuildRequires:  python2-cryptography
 BuildRequires:  python-dogpile-cache >= 0.5.7
 BuildRequires:  python-memcached
