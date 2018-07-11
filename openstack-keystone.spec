@@ -1,4 +1,4 @@
-%global with_doc 0
+%global with_doc 1
 %global service keystone
 # guard for package OSP does not support
 %global rhosp 0
@@ -42,9 +42,7 @@ BuildRequires:  python-zmq
 # Required to compile translation files
 BuildRequires:    python2-babel
 # Required to build man pages
-BuildRequires:  python2-openstackdocstheme
 BuildRequires:  python2-oslo-policy
-BuildRequires:  python2-sphinx >= 1.1.2
 BuildRequires:  python2-jsonschema
 BuildRequires:  python2-oslo-db >= 4.27.0
 BuildRequires:  python-ldappool
@@ -109,7 +107,8 @@ Requires:       python2-osprofiler >= 1.4.0
 Requires:       python2-pysaml2 >= 2.4.0
 Requires:       python2-stevedore >= 1.20.0
 Requires:       python2-scrypt
-Requires:       python-flask
+Requires:       python2-flask
+Requires:       python2-flask-restful
 # for Keystone Lightweight Tokens (KLWT)
 Requires:       python2-cryptography
 Requires:       python-msgpack
@@ -139,6 +138,11 @@ This package contains the Keystone test files.
 Summary:        Documentation for OpenStack Identity Service
 
 # for API autodoc
+BuildRequires:  python2-sphinx >= 1.1.2
+BuildRequires:  python2-openstackdocstheme
+BuildRequires:  python2-sphinxcontrib-apidoc
+BuildRequires:  python2-flask
+BuildRequires:  python2-flask-restful
 BuildRequires:  python2-cryptography
 BuildRequires:  python-dogpile-cache >= 0.5.7
 BuildRequires:  python-memcached
@@ -217,9 +221,9 @@ rm -rf %{buildroot}/%{_prefix}%{_sysconfdir}
 
 # docs generation requires everything to be installed first
 %if 0%{?with_doc}
-%{__python2} setup.py build_sphinx -b html
+sphinx-build -b html doc/source doc/build/html
 
-%{__python2} setup.py build_sphinx -b man
+sphinx-build -b man doc/source doc/build/man
 mkdir -p %{buildroot}%{_mandir}/man1
 install -p -D -m 644 doc/build/man/*.1 %{buildroot}%{_mandir}/man1/
 %endif
