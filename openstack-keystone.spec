@@ -32,7 +32,7 @@ BuildRequires:  python2-pbr >= 1.8
 BuildRequires:  git
 # Required to build keystone.conf
 BuildRequires:  python2-oslo-cache >= 1.26.0
-BuildRequires:  python2-oslo-config >= 2:5.1.0
+BuildRequires:  python2-oslo-config >= 2:5.2.0
 BuildRequires:  python2-passlib >= 1.6
 BuildRequires:  python2-pycadf >= 2.1.0
 BuildRequires:  python-redis
@@ -84,17 +84,17 @@ Requires:       python2-sqlalchemy >= 1.0.10
 Requires:       python-webob >= 1.7.1
 Requires:       python2-passlib >= 1.7.0
 Requires:       openssl
-Requires:       python2-six >= 1.9.0
+Requires:       python2-six >= 1.10.0
 Requires:       python2-babel >= 2.3.4
-Requires:       python2-oauthlib >= 0.6
+Requires:       python2-oauthlib >= 0.6.2
 Requires:       python-dogpile-cache >= 0.6.2
 Requires:       python2-jsonschema
 Requires:       python2-pycadf >= 2.1.0
 Requires:       python2-keystonemiddleware >= 4.17.0
 Requires:       python2-oslo-cache >= 1.26.0
-Requires:       python2-oslo-concurrency >= 3.25.0
-Requires:       python2-oslo-config >= 2:5.1.0
-Requires:       python2-oslo-context >= 2.19.2
+Requires:       python2-oslo-concurrency >= 3.26.0
+Requires:       python2-oslo-config >= 2:5.2.0
+Requires:       python2-oslo-context >= 2.21.0
 Requires:       python2-oslo-db >= 4.27.0
 Requires:       python2-oslo-i18n >= 3.15.3
 Requires:       python2-oslo-log >= 3.36.0
@@ -104,7 +104,7 @@ Requires:       python2-oslo-policy >= 1.30.0
 Requires:       python2-oslo-serialization >= 2.18.0
 Requires:       python2-oslo-utils >= 3.33.0
 Requires:       python2-osprofiler >= 1.4.0
-Requires:       python2-pysaml2 >= 2.4.0
+Requires:       python2-pysaml2 >= 4.5.0
 Requires:       python2-stevedore >= 1.20.0
 Requires:       python2-scrypt
 Requires:       python2-flask
@@ -146,7 +146,7 @@ BuildRequires:  python2-flask-restful
 BuildRequires:  python2-cryptography
 BuildRequires:  python-dogpile-cache >= 0.5.7
 BuildRequires:  python-memcached
-BuildRequires:  python2-oslo-concurrency >= 3.25.0
+BuildRequires:  python2-oslo-concurrency >= 3.26.0
 BuildRequires:  python2-oslo-log >= 3.36.0
 BuildRequires:  python2-oslo-messaging >= 5.29.0
 BuildRequires:  python2-oslo-middleware >= 3.31.0
