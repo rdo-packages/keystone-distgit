@@ -99,7 +99,7 @@ Requires:       python2-oslo-config >= 2:5.2.0
 Requires:       python2-oslo-context >= 2.21.0
 Requires:       python2-oslo-db >= 4.27.0
 Requires:       python2-oslo-i18n >= 3.15.3
-Requires:       python2-oslo-log >= 3.36.0
+Requires:       python2-oslo-log >= 3.37.0
 Requires:       python2-oslo-messaging >= 5.29.0
 Requires:       python2-oslo-middleware >= 3.31.0
 Requires:       python2-oslo-policy >= 1.30.0
@@ -149,7 +149,7 @@ BuildRequires:  python2-cryptography
 BuildRequires:  python-dogpile-cache >= 0.5.7
 BuildRequires:  python-memcached
 BuildRequires:  python2-oslo-concurrency >= 3.26.0
-BuildRequires:  python2-oslo-log >= 3.36.0
+BuildRequires:  python2-oslo-log >= 3.37.0
 BuildRequires:  python2-oslo-messaging >= 5.29.0
 BuildRequires:  python2-oslo-middleware >= 3.31.0
 BuildRequires:  python2-oslo-policy >= 1.30.0
