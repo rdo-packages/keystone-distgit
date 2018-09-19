@@ -14,7 +14,7 @@ Name:           openstack-keystone
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
 Version:        14.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
 URL:            http://keystone.openstack.org/
@@ -99,7 +99,7 @@ Requires:       python2-oslo-config >= 2:5.2.0
 Requires:       python2-oslo-context >= 2.21.0
 Requires:       python2-oslo-db >= 4.27.0
 Requires:       python2-oslo-i18n >= 3.15.3
-Requires:       python2-oslo-log >= 3.36.0
+Requires:       python2-oslo-log >= 3.37.0
 Requires:       python2-oslo-messaging >= 5.29.0
 Requires:       python2-oslo-middleware >= 3.31.0
 Requires:       python2-oslo-policy >= 1.30.0
@@ -149,7 +149,7 @@ BuildRequires:  python2-cryptography
 BuildRequires:  python-dogpile-cache >= 0.5.7
 BuildRequires:  python-memcached
 BuildRequires:  python2-oslo-concurrency >= 3.26.0
-BuildRequires:  python2-oslo-log >= 3.36.0
+BuildRequires:  python2-oslo-log >= 3.37.0
 BuildRequires:  python2-oslo-messaging >= 5.29.0
 BuildRequires:  python2-oslo-middleware >= 3.31.0
 BuildRequires:  python2-oslo-policy >= 1.30.0
@@ -307,6 +307,9 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %endif
 
 %changelog
+* Wed Sep 19 2018 RDO <dev@lists.rdoproject.org> 1:14.0.0-2
+- Update python2-oslo-log requirement to 3.37.0 or later
+
 * Thu Aug 30 2018 RDO <dev@lists.rdoproject.org> 1:14.0.0-1
 - Update to 14.0.0
 
