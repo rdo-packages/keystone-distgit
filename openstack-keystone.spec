@@ -54,7 +54,6 @@ BuildRequires:  python%{pyver}-babel
 BuildRequires:  python%{pyver}-oslo-policy
 BuildRequires:  python%{pyver}-jsonschema
 BuildRequires:  python%{pyver}-oslo-db >= 4.27.0
-BuildRequires:  python%{pyver}-oauthlib
 BuildRequires:  python%{pyver}-pysaml2
 BuildRequires:  python%{pyver}-keystonemiddleware >= 4.17.0
 BuildRequires:  python%{pyver}-testresources
@@ -62,6 +61,7 @@ BuildRequires:  python%{pyver}-testscenarios
 BuildRequires:  python%{pyver}-oslotest
 # Handle python2 exception
 %if %{pyver} == 2
+BuildRequires:  python-oauthlib
 BuildRequires:  python-redis
 %if 0%{rhosp} == 0
 BuildRequires:  python-zmq
@@ -71,6 +71,7 @@ BuildRequires:  python-webtest
 BuildRequires:  python-freezegun
 BuildRequires:  python-pep8
 %else
+BuildRequires:  python%{pyver}-oauthlib
 BuildRequires:  python%{pyver}-redis
 %if 0%{rhosp} == 0
 BuildRequires:  python%{pyver}-zmq
