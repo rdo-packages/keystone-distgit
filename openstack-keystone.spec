@@ -14,7 +14,7 @@ Name:           openstack-keystone
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
 Version:        14.0.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
 URL:            http://keystone.openstack.org/
@@ -307,6 +307,9 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %endif
 
 %changelog
+* Wed Nov 21 2018 RDO <dev@lists.rdoproject.org> 1:14.0.1-2
+- Use copytruncate when rotating logs and bump release
+
 * Thu Nov 01 2018 RDO <dev@lists.rdoproject.org> 1:14.0.1-1
 - Update to 14.0.1
 
