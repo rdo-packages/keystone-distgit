@@ -120,6 +120,7 @@ Requires:       python%{pyver}-oslo-messaging >= 5.29.0
 Requires:       python%{pyver}-oslo-middleware >= 3.31.0
 Requires:       python%{pyver}-oslo-policy >= 1.30.0
 Requires:       python%{pyver}-oslo-serialization >= 2.18.0
+Requires:       python%{pyver}-oslo-upgradecheck >= 0.1.0
 Requires:       python%{pyver}-oslo-utils >= 3.33.0
 Requires:       python%{pyver}-osprofiler >= 1.4.0
 Requires:       python%{pyver}-pysaml2 >= 4.5.0
@@ -316,6 +317,7 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %{_bindir}/keystone-wsgi-admin
 %{_bindir}/keystone-wsgi-public
 %{_bindir}/keystone-manage
+%{_bindir}/keystone-status
 %{_bindir}/openstack-keystone-sample-data
 %dir %{_datadir}/keystone
 %attr(0644, root, keystone) %{_datadir}/keystone/keystone-dist.conf
