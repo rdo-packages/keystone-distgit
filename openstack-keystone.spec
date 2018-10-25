@@ -120,6 +120,7 @@ Requires:       python%{pyver}-oslo-messaging >= 5.29.0
 Requires:       python%{pyver}-oslo-middleware >= 3.31.0
 Requires:       python%{pyver}-oslo-policy >= 1.30.0
 Requires:       python%{pyver}-oslo-serialization >= 2.18.0
+Requires:       python%{pyver}-oslo-upgradecheck >= 0.1.0
 Requires:       python%{pyver}-oslo-utils >= 3.33.0
 Requires:       python%{pyver}-osprofiler >= 1.4.0
 Requires:       python%{pyver}-pysaml2 >= 4.5.0
@@ -135,8 +136,6 @@ Requires:       python-ldap
 Requires:       python-ldappool
 Requires:       python-memcached
 Requires:       python-migrate >= 0.11.0
-Requires:       python-paste-deploy >= 1.5.0
-Requires:       python-paste
 Requires:       python-webob >= 1.7.1
 Requires:       python-dogpile-cache >= 0.6.2
 Requires:       python-msgpack
@@ -145,8 +144,6 @@ Requires:       python%{pyver}-ldap
 Requires:       python%{pyver}-ldappool
 Requires:       python%{pyver}-memcached
 Requires:       python%{pyver}-migrate >= 0.11.0
-Requires:       python%{pyver}-paste-deploy >= 1.5.0
-Requires:       python%{pyver}-paste
 Requires:       python%{pyver}-webob >= 1.7.1
 Requires:       python%{pyver}-dogpile-cache >= 0.6.2
 Requires:       python%{pyver}-msgpack
@@ -197,12 +194,10 @@ BuildRequires:  python%{pyver}-mock
 %if %{pyver} == 2
 BuildRequires:  python-dogpile-cache >= 0.5.7
 BuildRequires:  python-memcached
-BuildRequires:  python-paste-deploy
 BuildRequires:  python-lxml
 %else
 BuildRequires:  python%{pyver}-dogpile-cache >= 0.5.7
 BuildRequires:  python%{pyver}-memcached
-BuildRequires:  python%{pyver}-paste-deploy
 BuildRequires:  python%{pyver}-lxml
 %endif
 
@@ -245,7 +240,6 @@ echo "{}" > policy.json
 
 install -d -m 755 %{buildroot}%{_sysconfdir}/keystone
 install -p -D -m 640 etc/keystone.conf.sample %{buildroot}%{_sysconfdir}/keystone/keystone.conf
-install -p -D -m 640 etc/keystone-paste.ini %{buildroot}%{_sysconfdir}/keystone/keystone-paste.ini
 install -p -D -m 640 policy.json %{buildroot}%{_sysconfdir}/keystone/policy.json
 install -p -D -m 640 %{service}-schema.yaml %{buildroot}%{_datadir}/%{service}/%{service}-schema.yaml
 install -p -D -m 640 %{service}-schema.json %{buildroot}%{_datadir}/%{service}/%{service}-schema.json
@@ -316,6 +310,7 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %{_bindir}/keystone-wsgi-admin
 %{_bindir}/keystone-wsgi-public
 %{_bindir}/keystone-manage
+%{_bindir}/keystone-status
 %{_bindir}/openstack-keystone-sample-data
 %dir %{_datadir}/keystone
 %attr(0644, root, keystone) %{_datadir}/keystone/keystone-dist.conf
@@ -326,7 +321,6 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %attr(0644, root, keystone) %{_datadir}/keystone/wsgi-keystone.conf
 %dir %attr(0750, root, keystone) %{_sysconfdir}/keystone
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/keystone.conf
-%config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/keystone-paste.ini
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/logging.conf
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/policy.json
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/default_catalog.templates
