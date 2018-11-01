@@ -13,8 +13,8 @@ Name:           openstack-keystone
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
-Version:        14.0.0
-Release:        2%{?dist}
+Version:        14.0.1
+Release:        1%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
 URL:            http://keystone.openstack.org/
@@ -307,6 +307,9 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %endif
 
 %changelog
+* Thu Nov 01 2018 RDO <dev@lists.rdoproject.org> 1:14.0.1-1
+- Update to 14.0.1
+
 * Wed Sep 19 2018 RDO <dev@lists.rdoproject.org> 1:14.0.0-2
 - Update python2-oslo-log requirement to 3.37.0 or later
 
