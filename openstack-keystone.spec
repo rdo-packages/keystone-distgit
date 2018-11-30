@@ -84,7 +84,7 @@ BuildRequires:  python%{pyver}-pep8
 Requires:       python%{pyver}-keystone = %{epoch}:%{version}-%{release}
 Requires:       python%{pyver}-keystoneclient >= 1:3.8.0
 
-%{?systemd_requires}
+%{?systemd_ordering}
 BuildRequires: systemd
 Requires(pre):    shadow-utils
 
