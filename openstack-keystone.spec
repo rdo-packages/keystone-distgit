@@ -180,6 +180,7 @@ Summary:        Documentation for OpenStack Identity Service
 BuildRequires:  python%{pyver}-sphinx >= 1.1.2
 BuildRequires:  python%{pyver}-openstackdocstheme
 BuildRequires:  python%{pyver}-sphinxcontrib-apidoc
+BuildRequires:  python%{pyver}-sphinxcontrib-seqdiag
 BuildRequires:  python%{pyver}-flask
 BuildRequires:  python%{pyver}-flask-restful
 BuildRequires:  python%{pyver}-cryptography
