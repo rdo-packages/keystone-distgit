@@ -103,8 +103,7 @@ Summary:          Keystone Python libraries
 
 Requires:       python%{pyver}-pbr
 Requires:       python%{pyver}-bcrypt
-Requires:       python%{pyver}-routes >= 2.3.1
-Requires:       python%{pyver}-sqlalchemy >= 1.0.10
+Requires:       python%{pyver}-sqlalchemy >= 1.1.0
 Requires:       python%{pyver}-passlib >= 1.7.0
 Requires:       openssl
 Requires:       python%{pyver}-six >= 1.10.0
@@ -112,17 +111,17 @@ Requires:       python%{pyver}-babel >= 2.3.4
 Requires:       python%{pyver}-oauthlib >= 0.6.2
 Requires:       python%{pyver}-jsonschema
 Requires:       python%{pyver}-pycadf >= 2.1.0
-Requires:       python%{pyver}-keystonemiddleware >= 4.17.0
+Requires:       python%{pyver}-keystonemiddleware >= 5.1.0
 Requires:       python%{pyver}-oslo-cache >= 1.26.0
 Requires:       python%{pyver}-oslo-concurrency >= 3.26.0
 Requires:       python%{pyver}-oslo-config >= 2:5.2.0
-Requires:       python%{pyver}-oslo-context >= 2.21.0
+Requires:       python%{pyver}-oslo-context >= 2.22.0
 Requires:       python%{pyver}-oslo-db >= 4.27.0
 Requires:       python%{pyver}-oslo-i18n >= 3.15.3
-Requires:       python%{pyver}-oslo-log >= 3.37.0
+Requires:       python%{pyver}-oslo-log >= 3.38.0
 Requires:       python%{pyver}-oslo-messaging >= 5.29.0
 Requires:       python%{pyver}-oslo-middleware >= 3.31.0
-Requires:       python%{pyver}-oslo-policy >= 1.30.0
+Requires:       python%{pyver}-oslo-policy >= 1.43.1
 Requires:       python%{pyver}-oslo-serialization >= 2.18.0
 Requires:       python%{pyver}-oslo-upgradecheck >= 0.1.0
 Requires:       python%{pyver}-oslo-utils >= 3.33.0
@@ -132,6 +131,8 @@ Requires:       python%{pyver}-stevedore >= 1.20.0
 Requires:       python%{pyver}-scrypt
 Requires:       python%{pyver}-flask
 Requires:       python%{pyver}-flask-restful
+Requires:       python%{pyver}-jwt
+Requires:       python%{pyver}-pytz
 # for Keystone Lightweight Tokens (KLWT)
 Requires:       python%{pyver}-cryptography
 # Handle python2 exception
@@ -193,7 +194,6 @@ BuildRequires:  python%{pyver}-oslo-log >= 3.37.0
 BuildRequires:  python%{pyver}-oslo-messaging >= 5.29.0
 BuildRequires:  python%{pyver}-oslo-middleware >= 3.31.0
 BuildRequires:  python%{pyver}-oslo-policy >= 1.30.0
-BuildRequires:  python%{pyver}-routes
 BuildRequires:  python%{pyver}-mock
 # Handle python2 exception
 %if %{pyver} == 2
