@@ -13,7 +13,7 @@ Name:           openstack-keystone
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
-Version:        12.0.2
+Version:        12.0.3
 Release:        1%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
@@ -300,6 +300,9 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %endif
 
 %changelog
+* Wed Apr 17 2019 RDO <dev@lists.rdoproject.org> 1:12.0.3-1
+- Update to 12.0.3
+
 * Wed Oct 31 2018 RDO <dev@lists.rdoproject.org> 1:12.0.2-1
 - Update to 12.0.2
 
