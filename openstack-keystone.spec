@@ -183,6 +183,7 @@ Summary:        Documentation for OpenStack Identity Service
 
 # for API autodoc
 BuildRequires:  python%{pyver}-sphinx >= 1.1.2
+BuildRequires:  python%{pyver}-sphinx-feature-classification
 BuildRequires:  python%{pyver}-openstackdocstheme
 BuildRequires:  python%{pyver}-sphinxcontrib-apidoc
 BuildRequires:  python%{pyver}-sphinxcontrib-seqdiag
