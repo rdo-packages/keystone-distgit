@@ -274,6 +274,8 @@ rm -rf %{buildroot}/%{_prefix}%{_sysconfdir}
 %if 0%{?with_doc}
 sphinx-build-%{pyver} -b html doc/source doc/build/html
 
+# https://storyboard.openstack.org/#!/story/2005577
+mkdir -p doc/build/man/_static
 sphinx-build-%{pyver} -b man doc/source doc/build/man
 mkdir -p %{buildroot}%{_mandir}/man1
 install -p -D -m 644 doc/build/man/*.1 %{buildroot}%{_mandir}/man1/
