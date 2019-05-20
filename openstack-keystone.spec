@@ -63,7 +63,7 @@ BuildRequires:  python%{pyver}-oslotest
 # Handle python2 exception
 %if %{pyver} == 2
 BuildRequires:  python-redis
-%if 0%{rhosp} == 0
+%if 0%{rhosp} == 0 || 0%{rhel} < 8
 BuildRequires:  python-zmq
 %endif
 BuildRequires:  python-ldappool
@@ -72,7 +72,7 @@ BuildRequires:  python-freezegun
 BuildRequires:  python-pep8
 %else
 BuildRequires:  python%{pyver}-redis
-%if 0%{rhosp} == 0
+%if 0%{rhosp} == 0 || 0%{rhel} < 8
 BuildRequires:  python%{pyver}-zmq
 %endif
 BuildRequires:  python%{pyver}-ldappool
