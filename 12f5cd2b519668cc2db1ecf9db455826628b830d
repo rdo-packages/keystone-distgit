@@ -1,0 +1,8 @@
+Code-Review+2: Javier Peña <jpena@redhat.com>
+Workflow+1: Javier Peña <jpena@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Tue, 21 May 2019 08:21:35 +0000
+Reviewed-on: https://review.rdoproject.org/r/20849
+Project: openstack/keystone-distgit
+Branch: refs/heads/rpm-master
