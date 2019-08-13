@@ -30,7 +30,7 @@ BuildArch:      noarch
 BuildRequires:  openstack-macros
 BuildRequires:  python2-devel
 BuildRequires:  python2-osprofiler >= 1.1.0
-BuildRequires:  python2-pbr >= 1.8
+BuildRequires:  python2-pbr >= 2.0.0
 BuildRequires:  git
 # Required to build keystone.conf
 BuildRequires:  python2-oslo-cache >= 1.26.0
@@ -45,7 +45,7 @@ BuildRequires:  python-zmq
 BuildRequires:    python2-babel
 # Required to build man pages
 BuildRequires:  python2-oslo-policy
-BuildRequires:  python2-jsonschema
+BuildRequires:  python2-jsonschema >= 2.6.0
 BuildRequires:  python2-oslo-db >= 4.27.0
 BuildRequires:  python-ldappool
 BuildRequires:  python2-oauthlib
@@ -73,11 +73,11 @@ This package contains the Keystone daemon.
 %package -n       python-keystone
 Summary:          Keystone Python libraries
 
-Requires:       python2-pbr
-Requires:       python2-bcrypt
-Requires:       python-ldap
-Requires:       python-ldappool
-Requires:       python-memcached
+Requires:       python2-pbr >= 2.0.0
+Requires:       python2-bcrypt >= 3.1.2
+Requires:       python-ldap >= 3.1.0
+Requires:       python-ldappool >= 2.0.0
+Requires:       python-memcached >= 1.56
 Requires:       python-migrate >= 0.11.0
 Requires:       python-paste-deploy >= 1.5.0
 Requires:       python-paste
@@ -90,7 +90,7 @@ Requires:       python2-six >= 1.10.0
 Requires:       python2-babel >= 2.3.4
 Requires:       python2-oauthlib >= 0.6.2
 Requires:       python-dogpile-cache >= 0.6.2
-Requires:       python2-jsonschema
+Requires:       python2-jsonschema >= 2.6.0
 Requires:       python2-pycadf >= 2.1.0
 Requires:       python2-keystonemiddleware >= 4.17.0
 Requires:       python2-oslo-cache >= 1.26.0
@@ -99,7 +99,7 @@ Requires:       python2-oslo-config >= 2:5.2.0
 Requires:       python2-oslo-context >= 2.21.0
 Requires:       python2-oslo-db >= 4.27.0
 Requires:       python2-oslo-i18n >= 3.15.3
-Requires:       python2-oslo-log >= 3.37.0
+Requires:       python2-oslo-log  >= 3.38.0
 Requires:       python2-oslo-messaging >= 5.29.0
 Requires:       python2-oslo-middleware >= 3.31.0
 Requires:       python2-oslo-policy >= 1.30.0
@@ -108,12 +108,13 @@ Requires:       python2-oslo-utils >= 3.33.0
 Requires:       python2-osprofiler >= 1.4.0
 Requires:       python2-pysaml2 >= 4.5.0
 Requires:       python2-stevedore >= 1.20.0
-Requires:       python2-scrypt
-Requires:       python2-flask
-Requires:       python2-flask-restful
+Requires:       python2-scrypt >= 0.8.0
+Requires:       python2-flask >= 1.0.2
+Requires:       python2-flask-restful  >= 0.3.5
+Requires:       python-pytz >= 2013.6
 # for Keystone Lightweight Tokens (KLWT)
-Requires:       python2-cryptography
-Requires:       python-msgpack
+Requires:       python2-cryptography >= 2.1
+Requires:       python-msgpack >= 0.4.0
 
 
 %description -n   python-keystone
@@ -143,13 +144,13 @@ Summary:        Documentation for OpenStack Identity Service
 BuildRequires:  python2-sphinx >= 1.1.2
 BuildRequires:  python2-openstackdocstheme
 BuildRequires:  python2-sphinxcontrib-apidoc
-BuildRequires:  python2-flask
-BuildRequires:  python2-flask-restful
-BuildRequires:  python2-cryptography
+BuildRequires:  python2-flask >= 1.0.2
+BuildRequires:  python2-flask-restful >= 0.3.5
+BuildRequires:  python2-cryptography >= 2.1
 BuildRequires:  python-dogpile-cache >= 0.5.7
 BuildRequires:  python-memcached
 BuildRequires:  python2-oslo-concurrency >= 3.26.0
-BuildRequires:  python2-oslo-log >= 3.37.0
+BuildRequires:  python2-oslo-log  >= 3.38.0
 BuildRequires:  python2-oslo-messaging >= 5.29.0
 BuildRequires:  python2-oslo-middleware >= 3.31.0
 BuildRequires:  python2-oslo-policy >= 1.30.0
