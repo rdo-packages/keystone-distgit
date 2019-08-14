@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89af305d_78b86882",
+        "filename": "openstack-keystone.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2019-08-14T04:43:44Z",
+      "side": 1,
+      "message": "already exist on 79,80 without forcing versions",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 40
+      },
+      "revId": "462ba7f3a7903f5c9c8a30280ce52913ac3d1b7d",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
