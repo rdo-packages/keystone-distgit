@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a27f753a_ee127b4f",
+        "filename": "openstack-keystone.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2019-09-10T04:57:53Z",
+      "side": 1,
+      "message": "this is not in Downstream, i see 1.0.4 is there for rocky, so it need to be followuped there to get it updated. Will add reviewers for it.",
+      "range": {
+        "startLine": 79,
+        "startChar": 35,
+        "endLine": 79,
+        "endChar": 40
+      },
+      "revId": "7d99d75d69db35508b9117ebdfbb4cac6889a0c7",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
