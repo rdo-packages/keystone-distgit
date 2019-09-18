@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ca7d10f7_8cdbce2f",
+        "filename": "openstack-keystone.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2019-09-18T14:06:12Z",
+      "side": 1,
+      "message": "we updated python-ldap to 3.1.0 since rocky, so it may be good to set minimal version to make sure the bz is fixed. \n\nhttps://review.rdoproject.org/r/#/q/topic:update-ldap+(status:open+OR+status:merged",
+      "range": {
+        "startLine": 78,
+        "startChar": 16,
+        "endLine": 78,
+        "endChar": 27
+      },
+      "revId": "7d99d75d69db35508b9117ebdfbb4cac6889a0c7",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a27f753a_ee127b4f",
         "filename": "openstack-keystone.spec",
         "patchSetId": 2
