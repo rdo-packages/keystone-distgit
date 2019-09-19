@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "38b8752e_118db9a7",
+        "filename": "openstack-keystone.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 639
+      },
+      "writtenOn": "2019-09-19T14:53:02Z",
+      "side": 1,
+      "message": "sure, it makes sense.",
+      "parentUuid": "ca7d10f7_8cdbce2f",
+      "range": {
+        "startLine": 78,
+        "startChar": 16,
+        "endLine": 78,
+        "endChar": 27
+      },
+      "revId": "7d99d75d69db35508b9117ebdfbb4cac6889a0c7",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a27f753a_ee127b4f",
         "filename": "openstack-keystone.spec",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2019-09-10T04:57:53Z",
       "side": 1,
       "message": "this is not in Downstream, i see 1.0.4 is there for rocky, so it need to be followuped there to get it updated. Will add reviewers for it.",
+      "range": {
+        "startLine": 79,
+        "startChar": 35,
+        "endLine": 79,
+        "endChar": 40
+      },
+      "revId": "7d99d75d69db35508b9117ebdfbb4cac6889a0c7",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbd74fd9_e80aff00",
+        "filename": "openstack-keystone.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 639
+      },
+      "writtenOn": "2019-09-19T14:53:02Z",
+      "side": 1,
+      "message": "Next step would be reviewing the downstream versions to bump these requirements for all the supported versions as well.",
+      "parentUuid": "a27f753a_ee127b4f",
       "range": {
         "startLine": 79,
         "startChar": 35,
