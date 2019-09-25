@@ -41,7 +41,7 @@ BuildArch:      noarch
 BuildRequires:  openstack-macros
 BuildRequires:  python%{pyver}-devel
 BuildRequires:  python%{pyver}-osprofiler >= 1.1.0
-BuildRequires:  python%{pyver}-pbr >= 1.8
+BuildRequires:  python%{pyver}-pbr >= 2.0.0
 BuildRequires:  git
 # Required to build keystone.conf
 BuildRequires:  python%{pyver}-oslo-cache >= 1.26.0
@@ -52,11 +52,11 @@ BuildRequires:  python%{pyver}-pycadf >= 2.1.0
 BuildRequires:  python%{pyver}-babel
 # Required to build man pages
 BuildRequires:  python%{pyver}-oslo-policy
-BuildRequires:  python%{pyver}-jsonschema
+BuildRequires:  python%{pyver}-jsonschema >= 2.6.0
 BuildRequires:  python%{pyver}-oslo-db >= 4.27.0
 BuildRequires:  python%{pyver}-oauthlib
 BuildRequires:  python%{pyver}-pysaml2
-BuildRequires:  python%{pyver}-keystonemiddleware >= 4.17.0
+BuildRequires:  python%{pyver}-keystonemiddleware >= 7.0.0
 BuildRequires:  python%{pyver}-testresources
 BuildRequires:  python%{pyver}-testscenarios
 BuildRequires:  python%{pyver}-oslotest
@@ -66,7 +66,7 @@ BuildRequires:  python-redis
 %if 0%{rhosp} == 0 && 0%{?rhel} < 8
 BuildRequires:  python-zmq
 %endif
-BuildRequires:  python-ldappool
+BuildRequires:  python-ldappool >= 2.0.0
 BuildRequires:  python-webtest
 BuildRequires:  python-freezegun
 BuildRequires:  python-pep8
@@ -75,7 +75,7 @@ BuildRequires:  python%{pyver}-redis
 %if 0%{rhosp} == 0 && 0%{?rhel} < 8
 BuildRequires:  python%{pyver}-zmq
 %endif
-BuildRequires:  python%{pyver}-ldappool
+BuildRequires:  python%{pyver}-ldappool >= 2.0.0
 BuildRequires:  python%{pyver}-webtest
 BuildRequires:  python%{pyver}-freezegun
 BuildRequires:  python%{pyver}-pep8
@@ -101,57 +101,57 @@ This package contains the Keystone daemon.
 Summary:          Keystone Python libraries
 %{?python_provide:%python_provide python%{pyver}-keystone}
 
-Requires:       python%{pyver}-pbr
-Requires:       python%{pyver}-bcrypt
+Requires:       python%{pyver}-pbr >= 2.0.0
+Requires:       python%{pyver}-bcrypt >= 3.1.3
 Requires:       python%{pyver}-sqlalchemy >= 1.1.0
 Requires:       python%{pyver}-passlib >= 1.7.0
 Requires:       openssl
 Requires:       python%{pyver}-six >= 1.10.0
 Requires:       python%{pyver}-babel >= 2.3.4
 Requires:       python%{pyver}-oauthlib >= 0.6.2
-Requires:       python%{pyver}-jsonschema
+Requires:       python%{pyver}-jsonschema >= 2.6.0
 Requires:       python%{pyver}-pycadf >= 2.1.0
-Requires:       python%{pyver}-keystonemiddleware >= 5.1.0
+Requires:       python%{pyver}-keystonemiddleware >= 7.0.0
 Requires:       python%{pyver}-oslo-cache >= 1.26.0
 Requires:       python%{pyver}-oslo-concurrency >= 3.26.0
 Requires:       python%{pyver}-oslo-config >= 2:5.2.0
 Requires:       python%{pyver}-oslo-context >= 2.22.0
 Requires:       python%{pyver}-oslo-db >= 4.27.0
 Requires:       python%{pyver}-oslo-i18n >= 3.15.3
-Requires:       python%{pyver}-oslo-log >= 3.38.0
+Requires:       python%{pyver}-oslo-log >= 3.44.0
 Requires:       python%{pyver}-oslo-messaging >= 5.29.0
 Requires:       python%{pyver}-oslo-middleware >= 3.31.0
-Requires:       python%{pyver}-oslo-policy >= 1.43.1
+Requires:       python%{pyver}-oslo-policy >= 2.3.0
 Requires:       python%{pyver}-oslo-serialization >= 2.18.0
 Requires:       python%{pyver}-oslo-upgradecheck >= 0.1.0
 Requires:       python%{pyver}-oslo-utils >= 3.33.0
 Requires:       python%{pyver}-osprofiler >= 1.4.0
 Requires:       python%{pyver}-pysaml2 >= 4.5.0
 Requires:       python%{pyver}-stevedore >= 1.20.0
-Requires:       python%{pyver}-scrypt
-Requires:       python%{pyver}-flask
-Requires:       python%{pyver}-flask-restful
+Requires:       python%{pyver}-scrypt >= 0.8.0
+Requires:       python%{pyver}-flask >= 1.0.2
+Requires:       python%{pyver}-flask-restful >= 0.3.5
 Requires:       python%{pyver}-jwt
 Requires:       python%{pyver}-pytz
 # for Keystone Lightweight Tokens (KLWT)
-Requires:       python%{pyver}-cryptography
+Requires:       python%{pyver}-cryptography >= 2.1
 # Handle python2 exception
 %if %{pyver} == 2
-Requires:       python-ldap
-Requires:       python-ldappool
-Requires:       python-memcached
+Requires:       python-ldap >= 3.1.0
+Requires:       python-ldappool >= 2.0.0
+Requires:       python-memcached >= 1.56
 Requires:       python-migrate >= 0.11.0
 Requires:       python-webob >= 1.7.1
 Requires:       python-dogpile-cache >= 0.6.2
-Requires:       python-msgpack
+Requires:       python-msgpack >= 0.5.0
 %else
-Requires:       python%{pyver}-ldap
-Requires:       python%{pyver}-ldappool
-Requires:       python%{pyver}-memcached
+Requires:       python%{pyver}-ldap >= 3.1.0
+Requires:       python%{pyver}-ldappool >= 2.0.0
+Requires:       python%{pyver}-memcached >= 1.56
 Requires:       python%{pyver}-migrate >= 0.11.0
 Requires:       python%{pyver}-webob >= 1.7.1
 Requires:       python%{pyver}-dogpile-cache >= 0.6.2
-Requires:       python%{pyver}-msgpack
+Requires:       python%{pyver}-msgpack >= 0.4.0
 %endif
 
 
@@ -188,23 +188,23 @@ BuildRequires:  python%{pyver}-openstackdocstheme
 BuildRequires:  python%{pyver}-sphinxcontrib-apidoc
 BuildRequires:  python%{pyver}-sphinxcontrib-seqdiag
 BuildRequires:  python%{pyver}-sphinxcontrib-blockdiag
-BuildRequires:  python%{pyver}-flask
-BuildRequires:  python%{pyver}-flask-restful
-BuildRequires:  python%{pyver}-cryptography
+BuildRequires:  python%{pyver}-flask >= 1.0.2
+BuildRequires:  python%{pyver}-flask-restful >= 0.3.5
+BuildRequires:  python%{pyver}-cryptography >= 2.1
 BuildRequires:  python%{pyver}-oslo-concurrency >= 3.26.0
-BuildRequires:  python%{pyver}-oslo-log >= 3.37.0
+BuildRequires:  python%{pyver}-oslo-log >= 3.44.0
 BuildRequires:  python%{pyver}-oslo-messaging >= 5.29.0
 BuildRequires:  python%{pyver}-oslo-middleware >= 3.31.0
-BuildRequires:  python%{pyver}-oslo-policy >= 1.30.0
+BuildRequires:  python%{pyver}-oslo-policy >= 2.3.0
 BuildRequires:  python%{pyver}-mock
 # Handle python2 exception
 %if %{pyver} == 2
 BuildRequires:  python-dogpile-cache >= 0.5.7
-BuildRequires:  python-memcached
+BuildRequires:  python-memcached >= 1.56
 BuildRequires:  python-lxml
 %else
 BuildRequires:  python%{pyver}-dogpile-cache >= 0.5.7
-BuildRequires:  python%{pyver}-memcached
+BuildRequires:  python%{pyver}-memcached >= 1.56
 BuildRequires:  python%{pyver}-lxml
 %endif
 
