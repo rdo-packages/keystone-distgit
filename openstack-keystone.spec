@@ -56,7 +56,7 @@ BuildRequires:  python%{pyver}-jsonschema
 BuildRequires:  python%{pyver}-oslo-db >= 4.27.0
 BuildRequires:  python%{pyver}-oauthlib
 BuildRequires:  python%{pyver}-pysaml2
-BuildRequires:  python%{pyver}-keystonemiddleware >= 4.17.0
+BuildRequires:  python%{pyver}-keystonemiddleware >= 7.0.0
 BuildRequires:  python%{pyver}-testresources
 BuildRequires:  python%{pyver}-testscenarios
 BuildRequires:  python%{pyver}-oslotest
@@ -111,17 +111,17 @@ Requires:       python%{pyver}-babel >= 2.3.4
 Requires:       python%{pyver}-oauthlib >= 0.6.2
 Requires:       python%{pyver}-jsonschema
 Requires:       python%{pyver}-pycadf >= 2.1.0
-Requires:       python%{pyver}-keystonemiddleware >= 5.1.0
+Requires:       python%{pyver}-keystonemiddleware >= 7.0.0
 Requires:       python%{pyver}-oslo-cache >= 1.26.0
 Requires:       python%{pyver}-oslo-concurrency >= 3.26.0
 Requires:       python%{pyver}-oslo-config >= 2:5.2.0
 Requires:       python%{pyver}-oslo-context >= 2.22.0
 Requires:       python%{pyver}-oslo-db >= 4.27.0
 Requires:       python%{pyver}-oslo-i18n >= 3.15.3
-Requires:       python%{pyver}-oslo-log >= 3.38.0
+Requires:       python%{pyver}-oslo-log >= 3.44.0
 Requires:       python%{pyver}-oslo-messaging >= 5.29.0
 Requires:       python%{pyver}-oslo-middleware >= 3.31.0
-Requires:       python%{pyver}-oslo-policy >= 1.43.1
+Requires:       python%{pyver}-oslo-policy >= 2.3.0
 Requires:       python%{pyver}-oslo-serialization >= 2.18.0
 Requires:       python%{pyver}-oslo-upgradecheck >= 0.1.0
 Requires:       python%{pyver}-oslo-utils >= 3.33.0
@@ -192,10 +192,10 @@ BuildRequires:  python%{pyver}-flask
 BuildRequires:  python%{pyver}-flask-restful
 BuildRequires:  python%{pyver}-cryptography
 BuildRequires:  python%{pyver}-oslo-concurrency >= 3.26.0
-BuildRequires:  python%{pyver}-oslo-log >= 3.37.0
+BuildRequires:  python%{pyver}-oslo-log >= 3.44.0
 BuildRequires:  python%{pyver}-oslo-messaging >= 5.29.0
 BuildRequires:  python%{pyver}-oslo-middleware >= 3.31.0
-BuildRequires:  python%{pyver}-oslo-policy >= 1.30.0
+BuildRequires:  python%{pyver}-oslo-policy >= 2.3.0
 BuildRequires:  python%{pyver}-mock
 # Handle python2 exception
 %if %{pyver} == 2
