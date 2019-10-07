@@ -256,7 +256,6 @@ install -p -D -m 640 policy.json %{buildroot}%{_sysconfdir}/keystone/policy.json
 install -p -D -m 640 %{service}-schema.yaml %{buildroot}%{_datadir}/%{service}/%{service}-schema.yaml
 install -p -D -m 640 %{service}-schema.json %{buildroot}%{_datadir}/%{service}/%{service}-schema.json
 install -p -D -m 644 %{SOURCE20} %{buildroot}%{_datadir}/keystone/keystone-dist.conf
-install -p -D -m 644 etc/policy.v3cloudsample.json %{buildroot}%{_datadir}/keystone/policy.v3cloudsample.json
 install -p -D -m 640 etc/logging.conf.sample %{buildroot}%{_sysconfdir}/keystone/logging.conf
 install -p -D -m 640 etc/default_catalog.templates %{buildroot}%{_sysconfdir}/keystone/default_catalog.templates
 install -p -D -m 640 etc/sso_callback_template.html %{buildroot}%{_sysconfdir}/keystone/sso_callback_template.html
@@ -328,7 +327,6 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %{_bindir}/openstack-keystone-sample-data
 %dir %{_datadir}/keystone
 %attr(0644, root, keystone) %{_datadir}/keystone/keystone-dist.conf
-%attr(0644, root, keystone) %{_datadir}/keystone/policy.v3cloudsample.json
 %attr(0644, root, keystone) %{_datadir}/keystone/%{service}-schema.yaml
 %attr(0644, root, keystone) %{_datadir}/keystone/%{service}-schema.json
 %attr(0755, root, root) %{_datadir}/keystone/sample_data.sh
