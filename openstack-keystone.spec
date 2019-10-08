@@ -196,6 +196,7 @@ PYTHONPATH=. oslo-config-generator --config-file=config-generator/keystone.conf 
 echo "{}" > policy.json
 
 install -d -m 755 %{buildroot}%{_sysconfdir}/keystone
+install -d -m 755 %{buildroot}%{_sysconfdir}/keystone/policy.d
 install -p -D -m 640 etc/keystone.conf.sample %{buildroot}%{_sysconfdir}/keystone/keystone.conf
 install -p -D -m 640 policy.json %{buildroot}%{_sysconfdir}/keystone/policy.json
 install -p -D -m 640 %{service}-schema.yaml %{buildroot}%{_datadir}/%{service}/%{service}-schema.yaml
@@ -277,6 +278,7 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %attr(0755, root, root) %{_datadir}/keystone/sample_data.sh
 %attr(0644, root, keystone) %{_datadir}/keystone/wsgi-keystone.conf
 %dir %attr(0750, root, keystone) %{_sysconfdir}/keystone
+%dir %attr(0750, root, keystone) %{_sysconfdir}/keystone/policy.d
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/keystone.conf
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/logging.conf
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/policy.json
