@@ -13,8 +13,8 @@ Name:           openstack-keystone
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
-Version:        13.0.2
-Release:        2%{?dist}
+Version:        13.0.3
+Release:        1%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
 URL:            http://keystone.openstack.org/
@@ -298,6 +298,9 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %endif
 
 %changelog
+* Wed Oct 30 2019 RDO <dev@lists.rdoproject.org> 1:13.0.3-1
+- Update to 13.0.3
+
 * Wed Nov 21 2018 RDO <dev@lists.rdoproject.org> 1:13.0.2-2
 - Use copytruncate when rotating logs and bump release
 
