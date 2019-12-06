@@ -69,7 +69,6 @@ BuildRequires:  python-zmq
 BuildRequires:  python-ldappool >= 2.0.0
 BuildRequires:  python-webtest
 BuildRequires:  python-freezegun
-BuildRequires:  python-pep8
 %else
 BuildRequires:  python%{pyver}-redis
 %if 0%{rhosp} == 0 && 0%{?rhel} < 8
@@ -78,7 +77,6 @@ BuildRequires:  python%{pyver}-zmq
 BuildRequires:  python%{pyver}-ldappool >= 2.0.0
 BuildRequires:  python%{pyver}-webtest
 BuildRequires:  python%{pyver}-freezegun
-BuildRequires:  python%{pyver}-pep8
 %endif
 
 Requires:       python%{pyver}-keystone = %{epoch}:%{version}-%{release}
