@@ -104,7 +104,6 @@ Requires:       python%{pyver}-bcrypt >= 3.1.3
 Requires:       python%{pyver}-sqlalchemy >= 1.1.0
 Requires:       python%{pyver}-passlib >= 1.7.0
 Requires:       openssl
-Requires:       python%{pyver}-six >= 1.10.0
 Requires:       python%{pyver}-babel >= 2.3.4
 Requires:       python%{pyver}-oauthlib >= 0.6.2
 Requires:       python%{pyver}-jsonschema >= 2.6.0
