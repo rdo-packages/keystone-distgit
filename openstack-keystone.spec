@@ -110,7 +110,6 @@ Requires:       python%{pyver}-jsonschema >= 2.6.0
 Requires:       python%{pyver}-pycadf >= 2.1.0
 Requires:       python%{pyver}-keystonemiddleware >= 7.0.0
 Requires:       python%{pyver}-oslo-cache >= 1.26.0
-Requires:       python%{pyver}-oslo-concurrency >= 3.26.0
 Requires:       python%{pyver}-oslo-config >= 2:5.2.0
 Requires:       python%{pyver}-oslo-context >= 2.22.0
 Requires:       python%{pyver}-oslo-db >= 4.27.0
@@ -188,7 +187,6 @@ BuildRequires:  python%{pyver}-sphinxcontrib-blockdiag
 BuildRequires:  python%{pyver}-flask >= 1.0.2
 BuildRequires:  python%{pyver}-flask-restful >= 0.3.5
 BuildRequires:  python%{pyver}-cryptography >= 2.1
-BuildRequires:  python%{pyver}-oslo-concurrency >= 3.26.0
 BuildRequires:  python%{pyver}-oslo-log >= 3.44.0
 BuildRequires:  python%{pyver}-oslo-messaging >= 5.29.0
 BuildRequires:  python%{pyver}-oslo-middleware >= 3.31.0
