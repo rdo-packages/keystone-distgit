@@ -1,15 +1,3 @@
-# Macros for py2/py3 compatibility
-%if 0%{?fedora} || 0%{?rhel} > 7
-%global pyver %{python3_pkgversion}
-%else
-%global pyver 2
-%endif
-
-%global pyver_bin python%{pyver}
-%global pyver_sitelib %python%{pyver}_sitelib
-%global pyver_install %py%{pyver}_install
-%global pyver_build %py%{pyver}_build
-# End of macros for py2/py3 compatibility
 
 %global with_doc 1
 %global service keystone
@@ -39,48 +27,40 @@ Source20:       keystone-dist.conf
 
 BuildArch:      noarch
 BuildRequires:  openstack-macros
-BuildRequires:  python%{pyver}-devel
-BuildRequires:  python%{pyver}-osprofiler >= 1.1.0
-BuildRequires:  python%{pyver}-pbr >= 2.0.0
+BuildRequires:  python3-devel
+BuildRequires:  python3-osprofiler >= 1.1.0
+BuildRequires:  python3-pbr >= 2.0.0
 BuildRequires:  git
 # Required to build keystone.conf
-BuildRequires:  python%{pyver}-oslo-cache >= 1.26.0
-BuildRequires:  python%{pyver}-oslo-config >= 2:5.2.0
-BuildRequires:  python%{pyver}-passlib >= 1.6
-BuildRequires:  python%{pyver}-pycadf >= 2.1.0
+BuildRequires:  python3-oslo-cache >= 1.26.0
+BuildRequires:  python3-oslo-config >= 2:5.2.0
+BuildRequires:  python3-passlib >= 1.6
+BuildRequires:  python3-pycadf >= 2.1.0
 # Required to compile translation files
-BuildRequires:  python%{pyver}-babel
+BuildRequires:  python3-babel
 # Required to build man pages
-BuildRequires:  python%{pyver}-oslo-policy
-BuildRequires:  python%{pyver}-jsonschema >= 2.6.0
-BuildRequires:  python%{pyver}-oslo-db >= 4.27.0
-BuildRequires:  python%{pyver}-oauthlib
-BuildRequires:  python%{pyver}-pysaml2
-BuildRequires:  python%{pyver}-keystonemiddleware >= 7.0.0
-BuildRequires:  python%{pyver}-testresources
-BuildRequires:  python%{pyver}-testscenarios
-BuildRequires:  python%{pyver}-oslotest
-# Handle python2 exception
-%if %{pyver} == 2
-BuildRequires:  python-redis
-%if 0%{rhosp} == 0 && 0%{?rhel} < 8
-BuildRequires:  python-zmq
-%endif
+BuildRequires:  python3-oslo-policy
+BuildRequires:  python3-jsonschema >= 2.6.0
+BuildRequires:  python3-oslo-db >= 4.27.0
+BuildRequires:  python3-oauthlib
+BuildRequires:  python3-pysaml2
+BuildRequires:  python3-keystonemiddleware >= 7.0.0
+BuildRequires:  python3-testresources
+BuildRequires:  python3-testscenarios
+BuildRequires:  python3-oslotest
 BuildRequires:  python-ldappool >= 2.0.0
 BuildRequires:  python-webtest
 BuildRequires:  python-freezegun
-%else
-BuildRequires:  python%{pyver}-redis
+BuildRequires:  python3-redis
 %if 0%{rhosp} == 0 && 0%{?rhel} < 8
-BuildRequires:  python%{pyver}-zmq
+BuildRequires:  python3-zmq
 %endif
-BuildRequires:  python%{pyver}-ldappool >= 2.0.0
-BuildRequires:  python%{pyver}-webtest
-BuildRequires:  python%{pyver}-freezegun
-%endif
+BuildRequires:  python3-ldappool >= 2.0.0
+BuildRequires:  python3-webtest
+BuildRequires:  python3-freezegun
 
-Requires:       python%{pyver}-keystone = %{epoch}:%{version}-%{release}
-Requires:       python%{pyver}-keystoneclient >= 1:3.8.0
+Requires:       python3-keystone = %{epoch}:%{version}-%{release}
+Requires:       python3-keystoneclient >= 1:3.8.0
 
 %if 0%{?rhel} && 0%{?rhel} < 8
 %{?systemd_requires}
@@ -95,79 +75,64 @@ Requires(pre):    shadow-utils
 
 This package contains the Keystone daemon.
 
-%package -n       python%{pyver}-keystone
+%package -n       python3-keystone
 Summary:          Keystone Python libraries
-%{?python_provide:%python_provide python%{pyver}-keystone}
+%{?python_provide:%python_provide python3-keystone}
 
-Requires:       python%{pyver}-pbr >= 2.0.0
-Requires:       python%{pyver}-bcrypt >= 3.1.3
-Requires:       python%{pyver}-sqlalchemy >= 1.1.0
-Requires:       python%{pyver}-passlib >= 1.7.0
+Requires:       python3-pbr >= 2.0.0
+Requires:       python3-bcrypt >= 3.1.3
+Requires:       python3-sqlalchemy >= 1.1.0
+Requires:       python3-passlib >= 1.7.0
 Requires:       openssl
-Requires:       python%{pyver}-babel >= 2.3.4
-Requires:       python%{pyver}-oauthlib >= 0.6.2
-Requires:       python%{pyver}-jsonschema >= 2.6.0
-Requires:       python%{pyver}-pycadf >= 2.1.0
-Requires:       python%{pyver}-keystonemiddleware >= 7.0.0
-Requires:       python%{pyver}-oslo-cache >= 1.26.0
-Requires:       python%{pyver}-oslo-config >= 2:5.2.0
-Requires:       python%{pyver}-oslo-context >= 2.22.0
-Requires:       python%{pyver}-oslo-db >= 4.27.0
-Requires:       python%{pyver}-oslo-i18n >= 3.15.3
-Requires:       python%{pyver}-oslo-log >= 3.44.0
-Requires:       python%{pyver}-oslo-messaging >= 5.29.0
-Requires:       python%{pyver}-oslo-middleware >= 3.31.0
-Requires:       python%{pyver}-oslo-policy >= 2.3.0
-Requires:       python%{pyver}-oslo-serialization >= 2.18.0
-Requires:       python%{pyver}-oslo-upgradecheck >= 0.1.0
-Requires:       python%{pyver}-oslo-utils >= 3.33.0
-Requires:       python%{pyver}-osprofiler >= 1.4.0
-Requires:       python%{pyver}-pysaml2 >= 4.5.0
-Requires:       python%{pyver}-stevedore >= 1.20.0
-Requires:       python%{pyver}-scrypt >= 0.8.0
-Requires:       python%{pyver}-flask >= 1.0.2
-Requires:       python%{pyver}-flask-restful >= 0.3.5
-Requires:       python%{pyver}-jwt
-Requires:       python%{pyver}-pytz
+Requires:       python3-oauthlib >= 0.6.2
+Requires:       python3-jsonschema >= 2.6.0
+Requires:       python3-pycadf >= 2.1.0
+Requires:       python3-keystonemiddleware >= 7.0.0
+Requires:       python3-oslo-cache >= 1.26.0
+Requires:       python3-oslo-config >= 2:5.2.0
+Requires:       python3-oslo-context >= 2.22.0
+Requires:       python3-oslo-db >= 4.27.0
+Requires:       python3-oslo-i18n >= 3.15.3
+Requires:       python3-oslo-log >= 3.44.0
+Requires:       python3-oslo-messaging >= 5.29.0
+Requires:       python3-oslo-middleware >= 3.31.0
+Requires:       python3-oslo-policy >= 3.0.2
+Requires:       python3-oslo-serialization >= 2.18.0
+Requires:       python3-oslo-upgradecheck >= 0.1.0
+Requires:       python3-oslo-utils >= 3.33.0
+Requires:       python3-osprofiler >= 1.4.0
+Requires:       python3-pysaml2 >= 4.5.0
+Requires:       python3-stevedore >= 1.20.0
+Requires:       python3-scrypt >= 0.8.0
+Requires:       python3-flask >= 1.0.2
+Requires:       python3-flask-restful >= 0.3.5
+Requires:       python3-jwt
+Requires:       python3-pytz
 # for Keystone Lightweight Tokens (KLWT)
-Requires:       python%{pyver}-cryptography >= 2.1
-# Handle python2 exception
-%if %{pyver} == 2
-Requires:       python-ldap >= 3.1.0
-Requires:       python-ldappool >= 2.0.0
-Requires:       python-memcached >= 1.56
-Requires:       python-migrate >= 0.11.0
-Requires:       python-webob >= 1.7.1
-Requires:       python-dogpile-cache >= 0.6.2
-Requires:       python-msgpack >= 0.5.0
-%else
-Requires:       python%{pyver}-ldap >= 3.1.0
-Requires:       python%{pyver}-ldappool >= 2.0.0
-Requires:       python%{pyver}-memcached >= 1.56
-Requires:       python%{pyver}-migrate >= 0.11.0
-Requires:       python%{pyver}-webob >= 1.7.1
-Requires:       python%{pyver}-dogpile-cache >= 0.6.2
-Requires:       python%{pyver}-msgpack >= 0.4.0
-%endif
+Requires:       python3-cryptography >= 2.1
+Requires:       python3-ldap >= 3.1.0
+Requires:       python3-ldappool >= 2.0.0
+Requires:       python3-memcached >= 1.56
+Requires:       python3-migrate >= 0.11.0
+Requires:       python3-webob >= 1.7.1
+Requires:       python3-dogpile-cache >= 0.6.2
+Requires:       python3-msgpack >= 0.5.0
 
 
-%description -n   python%{pyver}-keystone
+%description -n   python3-keystone
 %{common_desc}
 
 This package contains the Keystone Python library.
 
-%package -n python%{pyver}-%{service}-tests
+%package -n python3-%{service}-tests
 Summary:        Keystone tests
-%{?python_provide:%python_provide python%{pyver}-%{service}-tests}
+%{?python_provide:%python_provide python3-%{service}-tests}
 Requires:       openstack-%{service} = %{epoch}:%{version}-%{release}
 
 # Adding python-keystone-tests-tempest as Requires to keep backward
 # compatibilty
-%if %{pyver} == 2
-Requires:       python%{pyver}-keystone-tests-tempest
-%endif
 
-%description -n python%{pyver}-%{service}-tests
+%description -n python3-%{service}-tests
 %{common_desc}
 
 This package contains the Keystone test files.
@@ -178,30 +143,23 @@ This package contains the Keystone test files.
 Summary:        Documentation for OpenStack Identity Service
 
 # for API autodoc
-BuildRequires:  python%{pyver}-sphinx >= 1.1.2
-BuildRequires:  python%{pyver}-sphinx-feature-classification
-BuildRequires:  python%{pyver}-openstackdocstheme
-BuildRequires:  python%{pyver}-sphinxcontrib-apidoc
-BuildRequires:  python%{pyver}-sphinxcontrib-seqdiag
-BuildRequires:  python%{pyver}-sphinxcontrib-blockdiag
-BuildRequires:  python%{pyver}-flask >= 1.0.2
-BuildRequires:  python%{pyver}-flask-restful >= 0.3.5
-BuildRequires:  python%{pyver}-cryptography >= 2.1
-BuildRequires:  python%{pyver}-oslo-log >= 3.44.0
-BuildRequires:  python%{pyver}-oslo-messaging >= 5.29.0
-BuildRequires:  python%{pyver}-oslo-middleware >= 3.31.0
-BuildRequires:  python%{pyver}-oslo-policy >= 2.3.0
-BuildRequires:  python%{pyver}-mock
-# Handle python2 exception
-%if %{pyver} == 2
-BuildRequires:  python-dogpile-cache >= 0.5.7
-BuildRequires:  python-memcached >= 1.56
-BuildRequires:  python-lxml
-%else
-BuildRequires:  python%{pyver}-dogpile-cache >= 0.5.7
-BuildRequires:  python%{pyver}-memcached >= 1.56
-BuildRequires:  python%{pyver}-lxml
-%endif
+BuildRequires:  python3-sphinx >= 1.1.2
+BuildRequires:  python3-sphinx-feature-classification
+BuildRequires:  python3-openstackdocstheme
+BuildRequires:  python3-sphinxcontrib-apidoc
+BuildRequires:  python3-sphinxcontrib-seqdiag
+BuildRequires:  python3-sphinxcontrib-blockdiag
+BuildRequires:  python3-flask >= 1.0.2
+BuildRequires:  python3-flask-restful >= 0.3.5
+BuildRequires:  python3-cryptography >= 2.1
+BuildRequires:  python3-oslo-log >= 3.44.0
+BuildRequires:  python3-oslo-messaging >= 5.29.0
+BuildRequires:  python3-oslo-middleware >= 3.31.0
+BuildRequires:  python3-oslo-policy >= 2.3.0
+BuildRequires:  python3-mock
+BuildRequires:  python3-dogpile-cache >= 0.5.7
+BuildRequires:  python3-memcached >= 1.56
+BuildRequires:  python3-lxml
 
 
 %description doc
@@ -223,17 +181,17 @@ sed -i 's#/local/bin#/bin#' httpd/wsgi-keystone.conf
 sed -i 's#apache2#httpd#' httpd/wsgi-keystone.conf
 
 %build
-PYTHONPATH=. oslo-config-generator-%{pyver} --config-file=config-generator/keystone.conf
-PYTHONPATH=. oslo-config-generator-%{pyver} --config-file=config-generator/keystone.conf --format yaml --output-file=%{service}-schema.yaml
-PYTHONPATH=. oslo-config-generator-%{pyver} --config-file=config-generator/keystone.conf --format json --output-file=%{service}-schema.json
+PYTHONPATH=. oslo-config-generator --config-file=config-generator/keystone.conf
+PYTHONPATH=. oslo-config-generator --config-file=config-generator/keystone.conf --format yaml --output-file=%{service}-schema.yaml
+PYTHONPATH=. oslo-config-generator --config-file=config-generator/keystone.conf --format json --output-file=%{service}-schema.json
 # distribution defaults are located in keystone-dist.conf
 
-%{pyver_build}
+%{py3_build}
 # Generate i18n files
-%{pyver_bin} setup.py compile_catalog -d build/lib/%{service}/locale -D keystone
+%{__python3} setup.py compile_catalog -d build/lib/%{service}/locale -D keystone
 
 %install
-%{pyver_install}
+%{py3_install}
 
 # Keystone doesn't ship policy.json file but only an example
 # that contains data which might be problematic to use by default.
@@ -262,16 +220,16 @@ install -d -m 755 %{buildroot}%{_sharedstatedir}/keystone
 install -d -m 755 %{buildroot}%{_localstatedir}/log/keystone
 
 # cleanup config files installed by keystone
-# we already generate them w/ oslo-config-generator-%{pyver}
+# we already generate them w/ oslo-config-generator
 rm -rf %{buildroot}/%{_prefix}%{_sysconfdir}
 
 # docs generation requires everything to be installed first
 %if 0%{?with_doc}
-sphinx-build-%{pyver} -b html doc/source doc/build/html
+sphinx-build -b html doc/source doc/build/html
 
 # https://storyboard.openstack.org/#!/story/2005577
 mkdir -p doc/build/man/_static
-sphinx-build-%{pyver} -b man doc/source doc/build/man
+sphinx-build -b man doc/source doc/build/man
 mkdir -p %{buildroot}%{_mandir}/man1
 install -p -D -m 644 doc/build/man/*.1 %{buildroot}%{_mandir}/man1/
 %endif
@@ -282,9 +240,9 @@ rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo
 
 # Install i18n .mo files (.po and .pot are not required)
 install -d -m 755 %{buildroot}%{_datadir}
-rm -f %{buildroot}%{pyver_sitelib}/%{service}/locale/*/LC_*/%{service}*po
-rm -f %{buildroot}%{pyver_sitelib}/%{service}/locale/*pot
-mv %{buildroot}%{pyver_sitelib}/%{service}/locale %{buildroot}%{_datadir}/locale
+rm -f %{buildroot}%{python3_sitelib}/%{service}/locale/*/LC_*/%{service}*po
+rm -f %{buildroot}%{python3_sitelib}/%{service}/locale/*pot
+mv %{buildroot}%{python3_sitelib}/%{service}/locale %{buildroot}%{_datadir}/locale
 
 # Find language files
 %find_lang %{service} --all-name
@@ -334,16 +292,16 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %{_prefix}/lib/sysctl.d/openstack-keystone.conf
 
 
-%files -n python%{pyver}-keystone -f %{service}.lang
+%files -n python3-keystone -f %{service}.lang
 %defattr(-,root,root,-)
 %license LICENSE
-%{pyver_sitelib}/keystone
-%{pyver_sitelib}/keystone-*.egg-info
-%exclude %{pyver_sitelib}/%{service}/tests
+%{python3_sitelib}/keystone
+%{python3_sitelib}/keystone-*.egg-info
+%exclude %{python3_sitelib}/%{service}/tests
 
-%files -n python%{pyver}-%{service}-tests
+%files -n python3-%{service}-tests
 %license LICENSE
-%{pyver_sitelib}/%{service}/tests
+%{python3_sitelib}/%{service}/tests
 
 %if 0%{?with_doc}
 %files doc
