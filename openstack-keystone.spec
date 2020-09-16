@@ -82,7 +82,7 @@ Requires:       python3-sqlalchemy >= 1.1.0
 Requires:       python3-passlib >= 1.7.0
 Requires:       openssl
 Requires:       python3-oauthlib >= 0.6.2
-Requires:       python3-jsonschema >= 2.6.0
+Requires:       python3-jsonschema >= 3.2.0
 Requires:       python3-pycadf >= 2.1.0
 Requires:       python3-keystonemiddleware >= 7.0.0
 Requires:       python3-oslo-cache >= 1.26.0
@@ -98,7 +98,7 @@ Requires:       python3-oslo-serialization >= 2.18.0
 Requires:       python3-oslo-upgradecheck >= 0.1.0
 Requires:       python3-oslo-utils >= 3.33.0
 Requires:       python3-osprofiler >= 1.4.0
-Requires:       python3-pysaml2 >= 4.5.0
+Requires:       python3-pysaml2 >= 5.0.0
 Requires:       python3-stevedore >= 1.20.0
 Requires:       python3-scrypt >= 0.8.0
 Requires:       python3-flask >= 1.0.2
