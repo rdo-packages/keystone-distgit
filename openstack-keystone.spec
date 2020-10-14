@@ -1,4 +1,3 @@
-%global milestone .0rc1
 
 %global with_doc 1
 %global service keystone
@@ -16,13 +15,11 @@ Name:           openstack-keystone
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
 Version:        18.0.0
-Release:        0.1%{?milestone}%{?dist}
+Release:        1%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
 URL:            http://keystone.openstack.org/
 Source0:        https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
-#
-# patches_base=18.0.0.0rc1
 #
 
 Source1:        openstack-keystone.logrotate
@@ -314,6 +311,9 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %endif
 
 %changelog
+* Wed Oct 14 2020 RDO <dev@lists.rdoproject.org> 1:18.0.0-1
+- Update to 18.0.0
+
 * Fri Sep 25 2020 RDO <dev@lists.rdoproject.org> 1:18.0.0-0.1.0rc1
 - Update to 18.0.0.0rc1
 
