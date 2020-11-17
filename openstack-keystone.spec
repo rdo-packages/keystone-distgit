@@ -42,7 +42,7 @@ BuildRequires:  openstack-macros
 BuildRequires:  python3-devel
 BuildRequires:  python3-osprofiler >= 1.1.0
 BuildRequires:  python3-pbr >= 2.0.0
-BuildRequires:  git
+BuildRequires:  git-core
 # Required to build keystone.conf
 BuildRequires:  python3-oslo-cache >= 1.26.0
 BuildRequires:  python3-oslo-config >= 2:5.2.0
