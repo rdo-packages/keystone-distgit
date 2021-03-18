@@ -45,7 +45,7 @@ BuildRequires:  python3-pbr >= 2.0.0
 BuildRequires:  git-core
 # Required to build keystone.conf
 BuildRequires:  python3-oslo-cache >= 1.26.0
-BuildRequires:  python3-oslo-config >= 2:5.2.0
+BuildRequires:  python3-oslo-config >= 2:6.8.0
 BuildRequires:  python3-passlib >= 1.6
 BuildRequires:  python3-pycadf >= 2.1.0
 # Required to compile translation files
@@ -90,24 +90,24 @@ Summary:          Keystone Python libraries
 
 Requires:       python3-pbr >= 2.0.0
 Requires:       python3-bcrypt >= 3.1.3
-Requires:       python3-sqlalchemy >= 1.1.0
+Requires:       python3-sqlalchemy >= 1.3.0
 Requires:       python3-passlib >= 1.7.0
 Requires:       openssl
 Requires:       python3-oauthlib >= 0.6.2
-Requires:       python3-jsonschema >= 2.6.0
-Requires:       python3-pycadf >= 2.1.0
+Requires:       python3-jsonschema >= 3.2.0
+Requires:       python3-pycadf >= 1.1.0
 Requires:       python3-keystonemiddleware >= 7.0.0
 Requires:       python3-oslo-cache >= 1.26.0
-Requires:       python3-oslo-config >= 2:5.2.0
+Requires:       python3-oslo-config >= 2:6.8.0
 Requires:       python3-oslo-context >= 2.22.0
-Requires:       python3-oslo-db >= 4.27.0
+Requires:       python3-oslo-db >= 6.0.0
 Requires:       python3-oslo-i18n >= 3.15.3
 Requires:       python3-oslo-log >= 3.44.0
 Requires:       python3-oslo-messaging >= 5.29.0
 Requires:       python3-oslo-middleware >= 3.31.0
-Requires:       python3-oslo-policy >= 3.0.2
+Requires:       python3-oslo-policy >= 3.6.0
 Requires:       python3-oslo-serialization >= 2.18.0
-Requires:       python3-oslo-upgradecheck >= 0.1.0
+Requires:       python3-oslo-upgradecheck >= 1.3.0
 Requires:       python3-oslo-utils >= 3.33.0
 Requires:       python3-osprofiler >= 1.4.0
 Requires:       python3-pysaml2 >= 5.0.0
@@ -115,16 +115,16 @@ Requires:       python3-stevedore >= 1.20.0
 Requires:       python3-scrypt >= 0.8.0
 Requires:       python3-flask >= 1.0.2
 Requires:       python3-flask-restful >= 0.3.5
-Requires:       python3-jwt
-Requires:       python3-pytz
+Requires:       python3-jwt >= 1.6.1
+Requires:       python3-pytz >= 2013.6
 # for Keystone Lightweight Tokens (KLWT)
-Requires:       python3-cryptography >= 2.1
+Requires:       python3-cryptography >= 2.7
 Requires:       python3-ldap >= 3.1.0
 Requires:       python3-ldappool >= 2.0.0
 Requires:       python3-memcached >= 1.56
-Requires:       python3-migrate >= 0.11.0
+Requires:       python3-migrate >= 0.13.0
 Requires:       python3-webob >= 1.7.1
-Requires:       python3-dogpile-cache >= 0.6.2
+Requires:       python3-dogpile-cache >= 1.0.2
 Requires:       python3-msgpack >= 0.5.0
 
 
