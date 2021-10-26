@@ -113,7 +113,7 @@ Requires:       python3-osprofiler >= 1.4.0
 Requires:       python3-pysaml2 >= 5.0.0
 Requires:       python3-stevedore >= 1.20.0
 Requires:       python3-scrypt >= 0.8.0
-Requires:       python3-flask >= 1.0.2
+Requires:       python3-flask >= 1:1.0.2
 Requires:       python3-flask-restful >= 0.3.5
 Requires:       python3-jwt >= 1.6.1
 Requires:       python3-pytz >= 2013.6
@@ -158,7 +158,7 @@ BuildRequires:  python3-openstackdocstheme
 BuildRequires:  python3-sphinxcontrib-apidoc
 BuildRequires:  python3-sphinxcontrib-seqdiag
 BuildRequires:  python3-sphinxcontrib-blockdiag
-BuildRequires:  python3-flask >= 1.0.2
+BuildRequires:  python3-flask >= 1:1.0.2
 BuildRequires:  python3-flask-restful >= 0.3.5
 BuildRequires:  python3-cryptography >= 2.1
 BuildRequires:  python3-oslo-log >= 3.44.0
