@@ -92,6 +92,7 @@ Summary:          Keystone Python libraries
 Requires:       python3-pbr >= 2.0.0
 Requires:       python3-bcrypt >= 3.1.3
 Requires:       python3-sqlalchemy >= 1.3.0
+Requires:       python3-sqlalchemy < 1.4.0
 Requires:       python3-passlib >= 1.7.0
 Requires:       openssl
 Requires:       python3-oauthlib >= 0.6.2
