@@ -7,6 +7,12 @@
 %global rhosp 0
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+# we are excluding some BRs from automatic generator
+%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order flake8-docstrings os-api-ref bashate
+# Exclude sphinx from BRs if docs are disabled
+%if ! 0%{?with_doc}
+%global excluded_brs %{excluded_brs} sphinx openstackdocstheme
+%endif
 
 %global common_desc \
 Keystone is a Python implementation of the OpenStack \
@@ -19,7 +25,7 @@ Epoch:          1
 Version:        XXX
 Release:        XXX
 Summary:        OpenStack Identity Service
-License:        ASL 2.0
+License:        Apache-2.0
 URL:            http://keystone.openstack.org/
 Source0:        https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 Source1:        openstack-keystone.logrotate
@@ -40,42 +46,10 @@ BuildRequires:  /usr/bin/gpgv2
 %endif
 BuildRequires:  openstack-macros
 BuildRequires:  python3-devel
-BuildRequires:  python3-osprofiler >= 1.1.0
-BuildRequires:  python3-pbr >= 2.0.0
+BuildRequires:  pyproject-rpm-macros
 BuildRequires:  git-core
-# Required to build keystone.conf
-BuildRequires:  python3-oslo-cache >= 1.26.0
-BuildRequires:  python3-oslo-config >= 2:6.8.0
-BuildRequires:  python3-passlib >= 1.6
-BuildRequires:  python3-pycadf >= 2.1.0
-# Required to compile translation files
-BuildRequires:  python3-babel
-# Required to build man pages
-BuildRequires:  python3-oslo-policy
-BuildRequires:  python3-jsonschema >= 2.6.0
-BuildRequires:  python3-oslo-db >= 4.27.0
-BuildRequires:  python3-oauthlib
-BuildRequires:  python3-pysaml2
-BuildRequires:  python3-keystonemiddleware >= 7.0.0
-BuildRequires:  python3-testresources
-BuildRequires:  python3-testscenarios
-BuildRequires:  python3-oslotest
-BuildRequires:  python3-redis
-%if 0%{rhosp} == 0 && 0%{?rhel} < 8
-BuildRequires:  python3-zmq
-%endif
-BuildRequires:  python3-ldappool >= 2.0.0
-BuildRequires:  python3-webtest
-BuildRequires:  python3-freezegun
-
 Requires:       python3-keystone = %{epoch}:%{version}-%{release}
-Requires:       python3-keystoneclient >= 1:3.8.0
-
-%if 0%{?rhel} && 0%{?rhel} < 8
-%{?systemd_requires}
-%else
-%{?systemd_ordering} # does not exist on EL7
-%endif
+%{?systemd_ordering}
 BuildRequires: systemd
 Requires(pre):    shadow-utils
 
@@ -86,47 +60,10 @@ This package contains the Keystone daemon.
 
 %package -n       python3-keystone
 Summary:          Keystone Python libraries
-%{?python_provide:%python_provide python3-keystone}
 
-Requires:       python3-pbr >= 2.0.0
-Requires:       python3-bcrypt >= 3.1.3
-Requires:       python3-sqlalchemy >= 1.3.0
-Requires:       python3-passlib >= 1.7.0
 Requires:       openssl
-Requires:       python3-oauthlib >= 0.6.2
-Requires:       python3-jsonschema >= 3.2.0
-Requires:       python3-pycadf >= 1.1.0
-Requires:       python3-keystonemiddleware >= 7.0.0
-Requires:       python3-oslo-cache >= 1.26.0
-Requires:       python3-oslo-config >= 2:6.8.0
-Requires:       python3-oslo-context >= 2.22.0
-Requires:       python3-oslo-db >= 6.0.0
-Requires:       python3-oslo-i18n >= 3.15.3
-Requires:       python3-oslo-log >= 3.44.0
-Requires:       python3-oslo-messaging >= 5.29.0
-Requires:       python3-oslo-middleware >= 3.31.0
-Requires:       python3-oslo-policy >= 3.10.0
-Requires:       python3-oslo-serialization >= 2.18.0
-Requires:       python3-oslo-upgradecheck >= 1.3.0
-Requires:       python3-oslo-utils >= 3.33.0
-Requires:       python3-osprofiler >= 1.4.0
-Requires:       python3-pysaml2 >= 5.0.0
-Requires:       python3-stevedore >= 1.20.0
-Requires:       python3-scrypt >= 0.8.0
-Requires:       python3-flask >= 1:1.0.2
-Requires:       python3-flask-restful >= 0.3.5
-Requires:       python3-jwt >= 1.6.1
-Requires:       python3-pytz >= 2013.6
-# for Keystone Lightweight Tokens (KLWT)
-Requires:       python3-cryptography >= 2.7
-Requires:       python3-ldap >= 3.1.0
-Requires:       python3-ldappool >= 2.0.0
-Requires:       python3-memcached >= 1.56
-Requires:       python3-migrate >= 0.13.0
-Requires:       python3-webob >= 1.7.1
-Requires:       python3-dogpile-cache >= 1.0.2
-Requires:       python3-msgpack >= 0.5.0
-
+Requires:       python3-keystone+memcache = %{epoch}:%{version}-%{release}
+Requires:       python3-keystone+ldap = %{epoch}:%{version}-%{release}
 
 %description -n   python3-keystone
 %{common_desc}
@@ -135,7 +72,6 @@ This package contains the Keystone Python library.
 
 %package -n python3-%{service}-tests
 Summary:        Keystone tests
-%{?python_provide:%python_provide python3-%{service}-tests}
 Requires:       openstack-%{service} = %{epoch}:%{version}-%{release}
 
 # Adding python-keystone-tests-tempest as Requires to keep backward
@@ -150,25 +86,6 @@ This package contains the Keystone test files.
 %if 0%{?with_doc}
 %package doc
 Summary:        Documentation for OpenStack Identity Service
-
-# for API autodoc
-BuildRequires:  python3-sphinx >= 1.1.2
-BuildRequires:  python3-sphinx-feature-classification
-BuildRequires:  python3-openstackdocstheme
-BuildRequires:  python3-sphinxcontrib-apidoc
-BuildRequires:  python3-sphinxcontrib-seqdiag
-BuildRequires:  python3-sphinxcontrib-blockdiag
-BuildRequires:  python3-flask >= 1:1.0.2
-BuildRequires:  python3-flask-restful >= 0.3.5
-BuildRequires:  python3-cryptography >= 2.1
-BuildRequires:  python3-oslo-log >= 3.44.0
-BuildRequires:  python3-oslo-messaging >= 5.29.0
-BuildRequires:  python3-oslo-middleware >= 3.31.0
-BuildRequires:  python3-oslo-policy >= 2.3.0
-BuildRequires:  python3-mock
-BuildRequires:  python3-dogpile-cache >= 0.5.7
-BuildRequires:  python3-memcached >= 1.56
-BuildRequires:  python3-lxml
 
 
 %description doc
@@ -186,25 +103,52 @@ This package contains documentation for Keystone.
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 find keystone -name \*.py -exec sed -i '/\/usr\/bin\/env python/d' {} \;
-# Let RPM handle the dependencies
-%py_req_cleanup
 
 # adjust paths to WSGI scripts
 sed -i 's#/local/bin#/bin#' httpd/wsgi-keystone.conf
 sed -i 's#apache2#httpd#' httpd/wsgi-keystone.conf
 
-%build
-PYTHONPATH=. oslo-config-generator --config-file=config-generator/keystone.conf
-PYTHONPATH=. oslo-config-generator --config-file=config-generator/keystone.conf --format yaml --output-file=%{service}-schema.yaml
-PYTHONPATH=. oslo-config-generator --config-file=config-generator/keystone.conf --format json --output-file=%{service}-schema.json
-# distribution defaults are located in keystone-dist.conf
+sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
+sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
+sed -i /^minversion.*/d tox.ini
+sed -i /^requires.*virtualenv.*/d tox.ini
 
-%{py3_build}
-# Generate i18n files
-%{__python3} setup.py compile_catalog -d build/lib/%{service}/locale -D keystone
+sed -i '/\.\[ldap,memcache,mongodb\]/d' tox.ini
+sed -i 's/fixtures,//g' test-requirements.txt
+sed -i 's/,postgresql//g' test-requirements.txt
+
+# Exclude some bad-known BRs
+for pkg in %{excluded_brs}; do
+  for reqfile in doc/requirements.txt test-requirements.txt; do
+    if [ -f $reqfile ]; then
+      sed -i /^${pkg}.*/d $reqfile
+    fi
+  done
+done
+
+# Automatic BR generation
+%generate_buildrequires
+%if 0%{?with_doc}
+  %pyproject_buildrequires -t -e %{default_toxenv},docs
+%else
+  %pyproject_buildrequires -t -e %{default_toxenv}
+%endif
+
+%build
+%pyproject_wheel
 
 %install
-%{py3_install}
+%pyproject_install
+
+export PYTHONPATH="%{buildroot}/%{python3_sitelib}"
+oslo-config-generator --config-file=config-generator/keystone.conf
+oslo-config-generator --config-file=config-generator/keystone.conf --format yaml --output-file=%{service}-schema.yaml
+oslo-config-generator --config-file=config-generator/keystone.conf --format json --output-file=%{service}-schema.json
+# distribution defaults are located in keystone-dist.conf
+
+# Generate i18n files
+%{__python3} setup.py compile_catalog -d %{buildroot}%{python3_sitelib}/%{service}/locale -D keystone
+
 
 # Keystone doesn't ship policy.json file but only an example
 # that contains data which might be problematic to use by default.
@@ -239,7 +183,7 @@ rm -rf %{buildroot}/%{_prefix}%{_sysconfdir}
 
 # docs generation requires everything to be installed first
 %if 0%{?with_doc}
-sphinx-build -b html doc/source doc/build/html
+%tox -e docs
 
 # https://storyboard.openstack.org/#!/story/2005577
 mkdir -p doc/build/man/_static
@@ -260,6 +204,9 @@ mv %{buildroot}%{python3_sitelib}/%{service}/locale %{buildroot}%{_datadir}/loca
 
 # Find language files
 %find_lang %{service} --all-name
+
+%pyproject_extras_subpkg -n python3-%{service} memcache ldap
+
 
 %pre
 # 163:163 for keystone (openstack-keystone) - rhbz#752842
@@ -311,7 +258,7 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %defattr(-,root,root,-)
 %license LICENSE
 %{python3_sitelib}/keystone
-%{python3_sitelib}/keystone-*.egg-info
+%{python3_sitelib}/keystone-*.dist-info
 %exclude %{python3_sitelib}/%{service}/tests
 
 %files -n python3-%{service}-tests
