@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69e209ef_6ba2353e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-08-08T10:42:17Z",
+      "side": 1,
+      "message": "We are losing the requirements for ldap and memcached options:\n\nhttps://github.com/openstack/keystone/blob/56c1beee769775e90e31691badab2604a47664b4/setup.cfg#L31-L35\n\nFor backwards compatibility i\u0027d use the %pyproject_extra_subpackages and adding the +ldap and +memcached as requiremens of the main python3-keystone, similar to gnocchi i.e.:\n\nhttps://review.rdoproject.org/r/plugins/gitiles/openstack/glance_store-distgit/+/refs/heads/rpm-master/python-glance-store.spec\n",
+      "revId": "333c1b1d311a76aa7c4e5cee2548cc5c915ea0af",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c80546c_4bc2e658",
+        "filename": "openstack-keystone.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-08-08T10:42:17Z",
+      "side": 1,
+      "message": "this needs to go in %install",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 130
+      },
+      "revId": "333c1b1d311a76aa7c4e5cee2548cc5c915ea0af",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
