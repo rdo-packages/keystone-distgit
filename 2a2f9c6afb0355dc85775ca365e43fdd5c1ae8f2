@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24904ce3_059ef557",
+        "filename": "openstack-keystone.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-08-08T12:13:50Z",
+      "side": 1,
+      "message": "For backwards compatibility +ldap and +memcached packages should be added as requirements in python3-keystone:\n\nRequires:       python3-keystone+ldap \u003d %{epoch}:%{version}-%{release}\nRequires:       python3-keystone+memcached \u003d %{epoch}:%{version}-%{release}",
+      "revId": "2a2f9c6afb0355dc85775ca365e43fdd5c1ae8f2",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75e14cd9_c415b5b8",
+        "filename": "openstack-keystone.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-08-08T12:13:50Z",
+      "side": 1,
+      "message": "it should be:\n\nPYTHONPATH\u003d\"%{buildroot}/%{python3_sitelib}\" oslo-config-generator...",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 12
+      },
+      "revId": "2a2f9c6afb0355dc85775ca365e43fdd5c1ae8f2",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae77ea0f_2e63012a",
+        "filename": "openstack-keystone.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-08-08T12:13:50Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 12
+      },
+      "revId": "2a2f9c6afb0355dc85775ca365e43fdd5c1ae8f2",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2e1ebb2_4640cef8",
+        "filename": "openstack-keystone.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-08-08T12:13:50Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 143,
+        "startChar": 1,
+        "endLine": 143,
+        "endChar": 12
+      },
+      "revId": "2a2f9c6afb0355dc85775ca365e43fdd5c1ae8f2",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
