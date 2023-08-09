@@ -18,6 +18,24 @@
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6582cf66_a0901da4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 757
+      },
+      "writtenOn": "2023-08-09T14:45:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69e209ef_6ba2353e",
+      "revId": "333c1b1d311a76aa7c4e5cee2548cc5c915ea0af",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c80546c_4bc2e658",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-08-08T10:42:17Z",
       "side": 1,
       "message": "this needs to go in %install",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 130
+      },
+      "revId": "333c1b1d311a76aa7c4e5cee2548cc5c915ea0af",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27efcf59_c8759570",
+        "filename": "openstack-keystone.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 757
+      },
+      "writtenOn": "2023-08-09T14:45:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c80546c_4bc2e658",
       "range": {
         "startLine": 136,
         "startChar": 0,
