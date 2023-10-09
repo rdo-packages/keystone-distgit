@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x01527a34f0d0080f8a5db8d6eb6c5df21b4b6363
+%global sources_gpg_sign 0x815AFEC729392386480E076DCC0DFE2D21C023C9
 
 %global with_doc 1
 %global service keystone
@@ -16,7 +16,7 @@ Name:           openstack-keystone
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
-Version:        21.0.0
+Version:        21.0.1
 Release:        1%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
@@ -31,7 +31,7 @@ Source20:       keystone-dist.conf
 # Required for tarball sources verification
 %if 0%{?sources_gpg} == 1
 Source101:        https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz.asc
-Source102:        https://releases.openstack.org/_static/%{sources_gpg_sign}.txt
+Source102:        https://releases.openstack.org/_static/%{sources_gpg_sign}
 %endif
 
 BuildArch:      noarch
@@ -327,6 +327,9 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %endif
 
 %changelog
+* Mon Oct 09 2023 RDO <dev@lists.rdoproject.org> 1:21.0.1-1
+- Update to 21.0.1
+
 * Wed Mar 30 2022 RDO <dev@lists.rdoproject.org> 1:21.0.0-1
 - Update to 21.0.0
 
