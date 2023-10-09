@@ -1,0 +1,8 @@
+Code-Review+2: Joel Capitao <jcapitao@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Workflow+1: Joel Capitao <jcapitao@redhat.com>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Mon, 09 Oct 2023 10:42:20 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/keystone-distgit/+/50371
+Project: openstack/keystone-distgit
+Branch: refs/heads/antelope-rdo
