@@ -336,3 +336,4 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 * Thu Mar 24 2022 RDO <dev@lists.rdoproject.org> 1:21.0.0-0.1.0rc1
 - Update to 21.0.0.0rc1
 
+# REMOVEME: error caused by commit https://opendev.org/openstack/keystone/commit/0a318bef48bc43b35f9fb1476af466382c0b76f9
