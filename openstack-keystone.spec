@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0xa63ea142678138d1bb15f2e303bdfd64dd164087
+%global sources_gpg_sign 0x815afec729392386480e076dcc0dfe2d21c023c9
 
 %global with_doc 1
 %global service keystone
@@ -16,7 +16,7 @@ Name:           openstack-keystone
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:          1
-Version:        22.0.0
+Version:        22.0.1
 Release:        1%{?dist}
 Summary:        OpenStack Identity Service
 License:        ASL 2.0
@@ -327,6 +327,9 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %endif
 
 %changelog
+* Mon Oct 09 2023 RDO <dev@lists.rdoproject.org> 1:22.0.1-1
+- Update to 22.0.1
+
 * Wed Oct 05 2022 RDO <dev@lists.rdoproject.org> 1:22.0.0-1
 - Update to 22.0.0
 
