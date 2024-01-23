@@ -272,3 +272,4 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %endif
 
 %changelog
+# REMOVEME: error caused by commit https://opendev.org/openstack/keystone/commit/c89655a6d1a142500363e43f1bd2d828973181fd
