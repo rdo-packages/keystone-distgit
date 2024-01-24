@@ -112,6 +112,8 @@ sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
 sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
 sed -i /^minversion.*/d tox.ini
 sed -i /^requires.*virtualenv.*/d tox.ini
+# Disable warning is error in doc building
+sed -i '/sphinx-build/ s/-W//' tox.ini
 
 sed -i '/\.\[ldap,memcache,mongodb\]/d' tox.ini
 sed -i 's/fixtures,//g' test-requirements.txt
