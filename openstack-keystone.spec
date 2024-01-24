@@ -150,15 +150,9 @@ oslo-config-generator --config-file=config-generator/keystone.conf --format json
 %{__python3} setup.py compile_catalog -d %{buildroot}%{python3_sitelib}/%{service}/locale -D keystone
 
 
-# Keystone doesn't ship policy.json file but only an example
-# that contains data which might be problematic to use by default.
-# Instead, ship an empty file that operators can override.
-echo "{}" > policy.json
-
 install -d -m 755 %{buildroot}%{_sysconfdir}/keystone
 install -d -m 755 %{buildroot}%{_sysconfdir}/keystone/policy.d
 install -p -D -m 640 etc/keystone.conf.sample %{buildroot}%{_sysconfdir}/keystone/keystone.conf
-install -p -D -m 640 policy.json %{buildroot}%{_sysconfdir}/keystone/policy.json
 install -p -D -m 640 %{service}-schema.yaml %{buildroot}%{_datadir}/%{service}/%{service}-schema.yaml
 install -p -D -m 640 %{service}-schema.json %{buildroot}%{_datadir}/%{service}/%{service}-schema.json
 install -p -D -m 644 %{SOURCE20} %{buildroot}%{_datadir}/keystone/keystone-dist.conf
