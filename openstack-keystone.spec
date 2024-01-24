@@ -1,7 +1,7 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 
-%global with_doc 1
+%global with_doc 0
 %global service keystone
 # guard for package OSP does not support
 %global rhosp 0
