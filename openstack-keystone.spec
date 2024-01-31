@@ -280,3 +280,4 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 * Thu Sep 14 2023 RDO <dev@lists.rdoproject.org> 1:24.0.0-0.1.0rc1
 - Update to 24.0.0.0rc1
 
+
