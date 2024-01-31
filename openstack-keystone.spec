@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x815AFEC729392386480E076DCC0DFE2D21C023C9
+%global sources_gpg_sign 0x815afec729392386480e076dcc0dfe2d21c023c9
 
 %global with_doc 1
 %global service keystone
@@ -279,4 +279,5 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 
 * Thu Sep 14 2023 RDO <dev@lists.rdoproject.org> 1:24.0.0-0.1.0rc1
 - Update to 24.0.0.0rc1
+
 
