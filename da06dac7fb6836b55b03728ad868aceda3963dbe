@@ -1,0 +1,8 @@
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Code-Review+2: Joel Capitao <jcapitao@redhat.com>
+Workflow+1: Joel Capitao <jcapitao@redhat.com>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Thu, 01 Feb 2024 06:30:25 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/keystone-distgit/+/51512
+Project: openstack/keystone-distgit
+Branch: refs/heads/zed-rdo
