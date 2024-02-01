@@ -339,3 +339,4 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 * Fri Mar 26 2021 RDO <dev@lists.rdoproject.org> 1:19.0.0-0.1.0rc1
 - Update to 19.0.0.0rc1
 
+
