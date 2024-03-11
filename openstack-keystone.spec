@@ -113,7 +113,7 @@ sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
 sed -i /^minversion.*/d tox.ini
 sed -i /^requires.*virtualenv.*/d tox.ini
 
-sed -i '/\.\[ldap,memcache,mongodb\]/d' tox.ini
+sed -i '/\.\[ldap,memcache\]/d' tox.ini
 sed -i 's/fixtures,//g' test-requirements.txt
 sed -i 's/,postgresql//g' test-requirements.txt
 
