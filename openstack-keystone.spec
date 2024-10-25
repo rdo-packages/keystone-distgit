@@ -29,7 +29,6 @@ License:        Apache-2.0
 URL:            http://keystone.openstack.org/
 Source0:        https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 Source1:        openstack-keystone.logrotate
-Source3:        openstack-keystone.sysctl
 Source5:        openstack-keystone-sample-data
 Source20:       keystone-dist.conf
 # Required for tarball sources verification
@@ -158,8 +157,6 @@ install -p -D -m 644 %{SOURCE20} %{buildroot}%{_datadir}/keystone/keystone-dist.
 install -p -D -m 640 etc/logging.conf.sample %{buildroot}%{_sysconfdir}/keystone/logging.conf
 install -p -D -m 640 etc/sso_callback_template.html %{buildroot}%{_sysconfdir}/keystone/sso_callback_template.html
 install -p -D -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/openstack-keystone
-install -d -m 755 %{buildroot}%{_prefix}/lib/sysctl.d
-install -p -D -m 644 %{SOURCE3} %{buildroot}%{_prefix}/lib/sysctl.d/openstack-keystone.conf
 # Install sample data script.
 install -p -D -m 755 tools/sample_data.sh %{buildroot}%{_datadir}/keystone/sample_data.sh
 install -p -D -m 755 %{SOURCE5} %{buildroot}%{_bindir}/openstack-keystone-sample-data
@@ -209,7 +206,6 @@ useradd --uid 163 -r -g keystone -d %{_sharedstatedir}/keystone -s /sbin/nologin
 exit 0
 
 %post
-%sysctl_apply openstack-keystone.conf
 # Install keystone.log file before, so both keystone & root users can write in it.
 touch %{_localstatedir}/log/keystone/keystone.log
 chown root:keystone %{_localstatedir}/log/keystone/keystone.log
@@ -241,7 +237,6 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %dir %attr(-, keystone, keystone) %{_sharedstatedir}/keystone
 %dir %attr(0750, keystone, keystone) %{_localstatedir}/log/keystone
 %ghost %attr(0660, root, keystone) %{_localstatedir}/log/keystone/keystone.log
-%{_prefix}/lib/sysctl.d/openstack-keystone.conf
 
 
 %files -n python3-keystone -f %{service}.lang
