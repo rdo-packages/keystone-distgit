@@ -62,7 +62,6 @@ This package contains the Keystone daemon.
 Summary:          Keystone Python libraries
 
 Requires:       openssl
-Requires:       python3-keystone+memcache = %{epoch}:%{version}-%{release}
 Requires:       python3-keystone+ldap = %{epoch}:%{version}-%{release}
 
 %description -n   python3-keystone
@@ -113,7 +112,7 @@ sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
 sed -i /^minversion.*/d tox.ini
 sed -i /^requires.*virtualenv.*/d tox.ini
 
-sed -i '/\.\[ldap,memcache\]/d' tox.ini
+sed -i '/\.\[ldap\]/d' tox.ini
 sed -i 's/fixtures,//g' test-requirements.txt
 sed -i 's/,postgresql//g' test-requirements.txt
 
@@ -199,7 +198,7 @@ mv %{buildroot}%{python3_sitelib}/%{service}/locale %{buildroot}%{_datadir}/loca
 # Find language files
 %find_lang %{service} --all-name
 
-%pyproject_extras_subpkg -n python3-%{service} memcache ldap
+%pyproject_extras_subpkg -n python3-%{service} ldap
 
 
 %pre
