@@ -62,7 +62,6 @@ This package contains the Keystone daemon.
 Summary:          Keystone Python libraries
 
 Requires:       openssl
-Requires:       python3-keystone+memcache = %{epoch}:%{version}-%{release}
 Requires:       python3-keystone+ldap = %{epoch}:%{version}-%{release}
 
 %description -n   python3-keystone
@@ -199,7 +198,7 @@ mv %{buildroot}%{python3_sitelib}/%{service}/locale %{buildroot}%{_datadir}/loca
 # Find language files
 %find_lang %{service} --all-name
 
-%pyproject_extras_subpkg -n python3-%{service} memcache ldap
+%pyproject_extras_subpkg -n python3-%{service} ldap
 
 
 %pre
