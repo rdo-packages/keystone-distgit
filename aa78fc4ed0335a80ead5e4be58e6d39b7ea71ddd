@@ -1,0 +1,9 @@
+Code-Review+2: Joel Capitao <jcapitao@redhat.com>
+Code-Review+1: Takashi Kajinami <kajinamit@oss.nttdata.com>
+Workflow+1: Joel Capitao <jcapitao@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Mon, 20 Jan 2025 10:12:05 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/keystone-distgit/+/55959
+Project: openstack/keystone-distgit
+Branch: refs/heads/rpm-master
