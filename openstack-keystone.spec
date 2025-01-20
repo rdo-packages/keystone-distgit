@@ -156,7 +156,6 @@ install -p -D -m 640 %{service}-schema.yaml %{buildroot}%{_datadir}/%{service}/%
 install -p -D -m 640 %{service}-schema.json %{buildroot}%{_datadir}/%{service}/%{service}-schema.json
 install -p -D -m 644 %{SOURCE20} %{buildroot}%{_datadir}/keystone/keystone-dist.conf
 install -p -D -m 640 etc/logging.conf.sample %{buildroot}%{_sysconfdir}/keystone/logging.conf
-install -p -D -m 640 etc/default_catalog.templates %{buildroot}%{_sysconfdir}/keystone/default_catalog.templates
 install -p -D -m 640 etc/sso_callback_template.html %{buildroot}%{_sysconfdir}/keystone/sso_callback_template.html
 install -p -D -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/openstack-keystone
 install -d -m 755 %{buildroot}%{_prefix}/lib/sysctl.d
@@ -237,7 +236,6 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %dir %attr(0750, root, keystone) %{_sysconfdir}/keystone/policy.d
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/keystone.conf
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/logging.conf
-%config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/default_catalog.templates
 %config(noreplace) %attr(0640, keystone, keystone) %{_sysconfdir}/keystone/sso_callback_template.html
 %config(noreplace) %{_sysconfdir}/logrotate.d/openstack-keystone
 %dir %attr(-, keystone, keystone) %{_sharedstatedir}/keystone
