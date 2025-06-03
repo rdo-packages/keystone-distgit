@@ -102,10 +102,6 @@ This package contains documentation for Keystone.
 find . \( -name .gitignore -o -name .placeholder \) -delete
 find keystone -name \*.py -exec sed -i '/\/usr\/bin\/env python/d' {} \;
 
-# adjust paths to WSGI scripts
-sed -i 's#/local/bin#/bin#' httpd/wsgi-keystone.conf
-sed -i 's#apache2#httpd#' httpd/wsgi-keystone.conf
-
 sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
 sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
 sed -i /^minversion.*/d tox.ini
@@ -156,8 +152,6 @@ install -p -D -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/openstack
 # Install sample data script.
 install -p -D -m 755 tools/sample_data.sh %{buildroot}%{_datadir}/keystone/sample_data.sh
 install -p -D -m 755 %{SOURCE5} %{buildroot}%{_bindir}/openstack-keystone-sample-data
-# Install sample HTTPD integration files
-install -p -D -m 644 httpd/wsgi-keystone.conf  %{buildroot}%{_datadir}/keystone/
 
 install -d -m 755 %{buildroot}%{_sharedstatedir}/keystone
 install -d -m 755 %{buildroot}%{_localstatedir}/log/keystone
@@ -221,7 +215,6 @@ chmod 660 %{_localstatedir}/log/keystone/keystone.log
 %dir %{_datadir}/keystone
 %attr(0644, root, keystone) %{_datadir}/keystone/keystone-dist.conf
 %attr(0755, root, root) %{_datadir}/keystone/sample_data.sh
-%attr(0644, root, keystone) %{_datadir}/keystone/wsgi-keystone.conf
 %dir %attr(0750, root, keystone) %{_sysconfdir}/keystone
 %dir %attr(0750, root, keystone) %{_sysconfdir}/keystone/policy.d
 %config(noreplace) %attr(0640, root, keystone) %{_sysconfdir}/keystone/keystone.conf
